@@ -1,0 +1,184 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url(../fotovideo/moneyhes.jpg);
+    background-size: cover;
+    color: white;
+}
+
+.container {
+    display: flex;
+}
+
+.navbar h2 {
+    justify-content: left;
+    background-color: black;
+    color: red;
+    position: absolute;
+    left: 0px;
+
+}
+
+header {
+    background-color: black;
+    padding: 12px;
+    align-items: center;
+    
+
+
+}
+
+.navbar {
+   width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 9999px;
+    background-image: url(../fotovideo/profile1.jpg);
+    background-size: cover;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    
+    
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    justify-content: center;
+}
+
+.menu a:hover {
+    color: red;
+}
+
+
+.main-content {
+    flex: 1;
+    background: url('background-image-moneyhes.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    position: relative;
+}
+
+.main-content h1 {
+    text-align: center;
+    font-size: 36px;
+    color: red;
+}
+
+.watchlist-container {
+    background-color: transparent;
+    margin: 40px auto;
+    width: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px;
+}
+
+.watchlist-container h2 {
+    text-align: center;
+    color:white;
+}
+
+.watchlist {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.watch-item {
+    width: 100%;
+    height: 150px;
+    background-color: black;
+    border: 2px solid lightgray;
+}
+
+.watch-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  
+}
+
+.number1 {
+    top: 120px;
+    position: absolute;
+    box-sizing: border-box;
+    background:transparent;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.number2 {
+    top: 290px;
+    position: absolute;
+    box-sizing: border-box;
+    background:transparent;
+    font-size: x-large;
+    font-weight: bold;
+    
+}
+
+.foto:hover{
+    transform: scale(1.1);
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: black;
+}
+
+.cont {
+    width: 100%;
+    color: red;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-1, .footer-2 {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.footer-1 a, .footer-2 a{
+    color: white;
+    text-decoration: none;
+    text-align: start;
+    padding-top: 10px;
+    border-bottom: 2px solid rgba(255, 0, 0, 0);
+    transition: 400ms;
+}
+
+.footer-1 a:hover, .footer-2 a:hover {
+    color: red;
+    text-decoration: underline red;
+    padding-bottom: 2px;
+}
+
+footer p  {
+    color: rgb(255, 0, 0);
+    text-align: center;
+}
+

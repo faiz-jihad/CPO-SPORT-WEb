@@ -1,0 +1,88 @@
+body {
+    font-family:  Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+
+    padding: 30px;
+ 
+   
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+section {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+h5 {
+    color: #222;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.8;
+    color: #555;
+    font-size: 16px;
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h5 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+}
+
+#whatsapp-button {
+    position: fixed; /* Membuat tombol tetap di posisi yang ditentukan */
+    bottom: 20px;     /* Jarak dari bawah */
+    right: 20px;      /* Jarak dari kanan */
+    z-index: 1000;    /* Pastikan tombol berada di atas konten lain */
+}
+
+#whatsapp-button img {
+    width: 60px;  /* Ukuran gambar tombol */
+    height: 60px; /* Ukuran gambar tombol */
+    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Menambahkan efek bayangan */
+    transition: transform 0.3s ease; /* Animasi saat hover */
+}
+
+#whatsapp-button:hover img {
+    transform: scale(1.1); /* Menambahkan efek pembesaran saat hover */
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ERD Diagram</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    padding: 20px;
+  }
+  svg {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #ccc;
+  }
+
+  .entity {
+    fill: #fff;
+    stroke: #3498db;
+    stroke-width: 2px;
+    rx: 8px;
+    ry: 8px;
+  }
+
+  .entity-text {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    fill: #333;
+    font-weight: bold;
+  }
+
+  .attr-text {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    fill: #555;
+  }
+</style>
+</head>
+<body>
+
+<h2>ERD Diagram</h2>
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Entities -->
+  <!-- kategori_waktu -->
+  <rect class="entity" x="50" y="50" width="200" height="140"/>
+  <text class="entity-text" x="150" y="70" text-anchor="middle">kategori_waktu</text>
+  <text class="attr-text" x="60" y="100">id_kategori (PK)</text>
+  <text class="attr-text" x="60" y="115">no_lapangan</text>
+  <text class="attr-text" x="60" y="130">harga</text>
+
+  <!-- jadwal -->
+  <rect class="entity" x="400" y="50" width="220" height="150"/>
+  <text class="entity-text" x="510" y="70" text-anchor="middle">jadwal</text>
+  <text class="attr-text" x="410" y="100">no_jadwal (PK)</text>
+  <text class="attr-text" x="410" y="115">id_kategori (FK)</text>
+  <text class="attr-text" x="410" y="130">no_lapangan (FK)</text>
+  <text class="attr-text" x="410" y="145">tanggal_sewa</text>
+
+  <!-- admincpo -->
+  <rect class="entity" x="750" y="50" width="220" height="150"/>
+  <text class="entity-text" x="860" y="70" text-anchor="middle">admincpo</text>
+  <text class="attr-text" x="760" y="100">idAdmin (PK)</text>
+  <text class="attr-text" x="760" y="115">namaAdmin</text>
+  <text class="attr-text" x="760" y="130">noTelepon</text>
+  <text class="attr-text" x="760" y="145">Password</text>
+
+  <!-- transaksi -->
+  <rect class="entity" x="50" y="250" width="300" height="200"/>
+  <text class="entity-text" x="200" y="270" text-anchor="middle">transaksi</text>
+  <text class="attr-text" x="60" y="290">no_transaksi (PK)</text>
+  <text class="attr-text" x="60" y="310">id_pelanggan (FK)</text>
+  <text class="attr-text" x="60" y="330">idAdmin (FK)</text>
+  <text class="attr-text" x="60" y="350">no_jadwal (FK)</text>
+  <text class="attr-text" x="60" y="370">tanggal_transaksi</text>
+  <text class="attr-text" x="60" y="390">status</text>
+
+  <!-- pelanggan -->
+  <rect class="entity" x="400" y="250" width="220" height="150"/>
+  <text class="entity-text" x="510" y="270" text-anchor="middle">pelanggan</text>
+  <text class="attr-text" x="410" y="290">id_pelanggan (PK)</text>
+  <text class="attr-text" x="410" y="310">nama</text>
+  <text class="attr-text" x="410" y="330">username</text>
+  <text class="attr-text" x="410" y="350">phone</text>
+
+  <!-- password_resets -->
+  <rect class="entity" x="750" y="250" width="220" height="100"/>
+  <text class="entity-text" x="860" y="270" text-anchor="middle">password_resets</text>
+  <text class="attr-text" x="760" y="290">id</text>
+  <text class="attr-text" x="760" y="310">Phone</text>
+  <text class="attr-text" x="760" y="330">token</text>
+
+  <!-- ulasan -->
+  <rect class="entity" x="1050" y="50" width="200" height="150"/>
+  <text class="entity-text" x="1150" y="70" text-anchor="middle">ulasan</text>
+  <text class="attr-text" x="1050" y="100">no_ulasan (PK)</text>
+  <text class="attr-text" x="1050" y="115">nama</text>
+  <text class="attr-text" x="1050" y="130">komentar</text>
+
+  <!-- Relationships (lines) -->
+  <!-- kategori_waktu -> jadwal -->
+  <line x1="250" y1="120" x2="410" y2="70" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- jadwal -> transaksi -->
+  <line x1="510" y1="125" x2="160" y2="250" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- pelanggan -> transaksi -->
+  <line x1="510" y1="290" x2="180" y2="330" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- admincpo -> transaksi -->
+  <line x1="860" y1="120" x2="200" y2="290" stroke="#555" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- transaksi -> password_resets (optional, bisa dihapus) -->
+  <!-- Can add more lines as needed -->
+
+  <defs>
+    <!-- Arrow marker -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#555" />
+    </marker>
+  </defs>
+</svg>
+
+</body>
+</html>
