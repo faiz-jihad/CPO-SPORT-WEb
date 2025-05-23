@@ -284,6 +284,7 @@ nav ul li a:hover {
 .table-container {
   font-family: "poppins", sans-serif;
   margin: 30px auto;
+  width: 100%;
   padding: 0px;
   text-align: center;
   background: #f8f8f8;
@@ -326,7 +327,7 @@ nav ul li a:hover {
 @media screen and (max-width: 768px) {
 
   .table-container, .table {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     overflow-x: auto;
   }
