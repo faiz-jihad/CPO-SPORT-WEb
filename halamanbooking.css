@@ -745,3 +745,45 @@ button.time-button:hover {
 ul {
   list-style: none;
 }
+
+/* Footer Responsif */
+@media screen and (max-width: 768px) {
+  .footer-col {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col iframe {
+    width: 200px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-col {
+    width: 100%;
+  }
+
+  .footer-col p {
+    margin: 20px 0;
+  }
+
+  .footer {
+    padding: 40px 0;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col iframe {
+    width: 200px;
+    height: auto;
+  }
+}
