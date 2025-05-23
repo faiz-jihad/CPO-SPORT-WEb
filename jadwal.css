@@ -285,6 +285,7 @@ nav ul li a:hover {
   font-family: "poppins", sans-serif;
   margin: 30px auto;
   width: 100%;
+  max-width: 90%;
   padding: 0px;
   text-align: center;
   background: #f8f8f8;
