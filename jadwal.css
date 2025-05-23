@@ -282,71 +282,91 @@ nav ul li a:hover {
 
 /* table */
 .table-container {
-  font-family: "poppins", sans-serif;
-  margin: 30px auto;
+  font-family: "Poppins", sans-serif;
+  margin: 30px auto 0;
   width: 100%;
-  max-width: 90%;
-  padding: 0px;
-  text-align: center;
+  max-width: 1000px;
   background: #f8f8f8;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  margin-top: 20px;
-}
-.table {
   text-align: center;
-  max-width: 800px;
-  margin: auto;
+}
+
+.filter-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.filter-container label {
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.filter-container select {
+  padding: 6px 10px;
+  margin: 0 10px 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.table {
   background: white;
   padding: 20px;
   border-radius: 10px;
+  overflow-x: auto;
 }
+
 .table-responsive {
   margin-top: 20px;
+  overflow-x: auto;
 }
 
 .booking-table {
   width: 100%;
-  margin-top: 20px;
   border-collapse: collapse;
   min-width: 768px;
 }
+
 .booking-table th,
 .booking-table td {
-  border: 1px solid #000000;
-  padding: 8px;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
   text-align: center;
   white-space: nowrap;
+  font-size: 15px;
 }
+
 .booking-table th {
   background-color: #bd2d2d;
   color: white;
+  font-weight: 600;
 }
 
-/* tabel */
+.booking-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.booking-table tr:hover {
+  background-color: #ffecec;
+}
+
+/* Mobile Responsive */
 @media screen and (max-width: 768px) {
-
   .table-container, .table {
-    width: 90%;
+    width: 95%;
     padding: 10px;
-    overflow-x: auto;
-  }
-
-  .booking-table {
-    width: 100%;
-    table-layout: auto;
-  }
-
-  .table h2 {
-    font-size: 16px;
   }
 
   .booking-table th,
   .booking-table td {
     padding: 6px;
-    font-size: 12px;
-    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .filter-container h2 {
+    font-size: 18px;
   }
 }
 
