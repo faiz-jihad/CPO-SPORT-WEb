@@ -169,33 +169,6 @@ body {
   }
 }
 
-.filter-container form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-}
-
-.table-container #year,
-.table-container #month {
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
-.table-container {
-  margin: 20px auto;
-  max-width: 100%;
-  padding: 20px;
-}
-
-.booking-table {
-  width: 100%;
-  min-width: unset;
-  word-wrap: break-word;
-}
 
 
 nav ul li {
