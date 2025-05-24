@@ -296,24 +296,31 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    var swiper = new Swiper(".swiper", {
-      slidesPerView: 1,
-      spaceBetween: 10,
+    const swiper = new Swiper('.swiper', {
+      loop: true,
       pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
+        spaceBetween: 10,
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      autoplay: {
+        delay: 3000, // 3000ms = 3 detik
+        disableOnInteraction: false, // agar autoplay tetap berjalan meskipun pengguna berinteraksi
       },
       breakpoints: {
-        480: {
-          slidesPerView: 1.1,
+        0: {
+          slidesPerView: 1
+        },
+        600: {
+          slidesPerView: 1.2
         },
         768: {
-          slidesPerView: 2,
+          slidesPerView: 1.5
         },
         1024: {
-          slidesPerView: 3,
+          slidesPerView: 2
         },
-      },
+      }
     });
   </script>
   <script>
