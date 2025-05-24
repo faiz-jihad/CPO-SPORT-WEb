@@ -954,31 +954,36 @@ ul {
   max-width: 600px;
   margin: auto;
   padding: 20px 0;
+  box-sizing: border-box;
 }
 
 /* Slide */
 .swiper-slide {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
-  max-width: 400px;
   box-sizing: border-box;
 }
 
 /* Testimonial Box */
 .testimonialbox {
   background: #fff;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 360px;
-  min-height: 150px;
+  max-width: 300px;
+  min-height: 120px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   text-align: left;
+  transition: transform 0.3s;
+}
+
+.testimonialbox:hover {
+  transform: scale(1.02);
 }
 
 /* Section Layout */
@@ -991,9 +996,9 @@ ul {
 
 /* Quote Image */
 .testimonialbox .quote {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 6px;
 }
 
 /* User Info */
@@ -1001,7 +1006,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .user-info .nama {
@@ -1009,14 +1014,15 @@ ul {
 }
 
 .user-info .tanggal {
-  font-size: 12px;
+  font-size: 11px;
   color: #777;
 }
 
 /* Komentar */
 .komentar {
-  font-size: 15px;
+  font-size: 14px;
   color: #333;
+  line-height: 1.5;
 }
 
 /* Comment Section */
@@ -1025,7 +1031,7 @@ ul {
   background: #f7f7f7;
   border-radius: 10px;
   margin: 20px auto;
-  max-width: 700px;
+  max-width: 720px;
 }
 
 #comment-section h2 {
@@ -1039,12 +1045,13 @@ ul {
 
 #comment-form textarea {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 14px;
   resize: vertical;
   min-height: 100px;
+  box-sizing: border-box;
 }
 
 .comment-btn {
@@ -1063,35 +1070,23 @@ ul {
   background-color: #005fa3;
 }
 
-/* Responsive */
+/* Tablet & Mobile */
 @media screen and (max-width: 768px) {
+  .swiper {
+    max-width: 100%;
+  }
+
   .swiper-slide {
-    max-width: 90%;
+    padding: 8px;
   }
 
   .testimonialbox {
-    padding: 15px;
+    max-width: 280px;
+    padding: 14px;
   }
 
   .komentar {
-    font-size: 14px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  #comment-section {
-    padding: 12px;
-    margin: 10px;
-  }
-
-  #comment-form textarea {
     font-size: 13px;
-    padding: 10px;
-  }
-
-  .testimonialbox {
-    width: 100%;
-    padding: 15px;
   }
 
   .user-info {
@@ -1103,9 +1098,41 @@ ul {
   }
 
   .user-info .tanggal {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
+
+/* HP Kecil */
+@media screen and (max-width: 480px) {
+  #comment-section {
+    padding: 12px;
+    margin: 10px;
+  }
+
+  #comment-form textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .swiper {
+    padding: 10px 0;
+  }
+
+  .swiper-slide {
+    max-width: 100%;
+  }
+
+  .testimonialbox {
+    max-width: 90%;
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .komentar {
+    font-size: 13px;
+  }
+}
+
 
 
 /* whatsapp style */

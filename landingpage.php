@@ -299,6 +299,7 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
     const swiper = new Swiper('.swiper', {
       loop: true,
       pagination: {
+        spaceBetween: 30,
         el: '.swiper-pagination',
         clickable: true
       },
