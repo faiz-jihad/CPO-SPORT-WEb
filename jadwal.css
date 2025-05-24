@@ -304,16 +304,18 @@ nav ul li a:hover {
   margin-bottom: 20px;
 }
 
+/* Default: Desktop (horizontal) */
 .filter-container form {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  max-width: 400px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -325,7 +327,6 @@ nav ul li a:hover {
 }
 
 .filter-container select {
-  width: 100%;
   padding: 10px 14px;
   font-size: 14px;
   border: 1px solid #ccc;
@@ -339,6 +340,24 @@ nav ul li a:hover {
   border-color: #bd2d2d;
   background-color: #fff;
 }
+
+/* Responsif: Mobile (vertikal) */
+@media screen and (max-width: 768px) {
+  .filter-container form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-container label {
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  .filter-container select {
+    width: 100%;
+  }
+}
+
 
 
 .table {
@@ -392,13 +411,19 @@ nav ul li a:hover {
     overflow-x: auto;
   }
 
-.filter-container form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
+  .filter-container form {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
+  .filter-container label {
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  .filter-container select {
+    width: 100%;
+  }
 
   .booking-table {
     overflow-x: auto;
