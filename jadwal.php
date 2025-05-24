@@ -14,7 +14,8 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-function formatJamMenit($waktuString) {
+function formatJamMenit($waktuString)
+{
     $dateTime = DateTime::createFromFormat('H:i:s', $waktuString);
     return $dateTime ? $dateTime->format('H:i') : $waktuString;
 }
@@ -90,6 +91,7 @@ $result = $stmt->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Jadwal</title>
     <link rel="stylesheet" href="jadwal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -196,7 +198,7 @@ $result = $stmt->get_result();
                                 <td>" . htmlspecialchars($tampildata['username']) . "</td>
                                 <td>" . htmlspecialchars($tampildata['no_lapangan']) . "</td>
                                 <td>" . htmlspecialchars($tampildata['tanggal_transaksi']) . "</td>
-                                <td>" . htmlspecialchars(formatJamMenit($tampildata['jam_mulai'])) ."</td>
+                                <td>" . htmlspecialchars(formatJamMenit($tampildata['jam_mulai'])) . "</td>
                                 <td>" . htmlspecialchars(formatJamMenit($tampildata['jam_selesai'])) . "</td>
                             </tr>";
                             }
@@ -213,6 +215,47 @@ $result = $stmt->get_result();
         <img src="wa.png" alt="WhatsApp" />
     </a>
 
+    <div class="footer">
+        <div class="footer-container">
+            <div class="row">
+                <div class="footer-col">
+                    <h3>CPO SPORT</h3>
+                    <ul>
+                        <li><a href="About.php">Tentang Kami</a></li>
+                        <li><a href="Services.php">Layanan</a></li>
+                        <li><a href="Privacy Policy.php">Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>WhatsApp</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Media sosial</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/cposportscafe/"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>LOKASI CPO</h3>
+                    <ul>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7279.884218054315!2d108.301801!3d-6.366406!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6eb97c4aa0c2d7%3A0x40559ddd0a4514aa!2sCPO%20SPORT%20BADMINTON!5e1!3m2!1sid!2sid!4v1739893379402!5m2!1sid!2sid" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </ul>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div class="footer-col">
+                <p>Copyright <a href="Admin/loginadmin.php">@</a> 2025</p>
+            </div>
+        </div>
+    </div>
+    </footer>
+
     <script src="jadwal.js"></script>
     <script>
         AOS.init();
@@ -223,7 +266,6 @@ $result = $stmt->get_result();
             const menit = String(date.getMinutes()).padStart(2, '0');
             return `${jam}:${menit}`;
         }
-
     </script>
 </body>
 

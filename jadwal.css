@@ -354,7 +354,9 @@ nav ul li a:hover {
 
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
-  .table-container, .table {
+
+  .table-container,
+  .table {
     width: 95%;
     padding: 10px;
   }
@@ -412,18 +414,161 @@ nav ul li a:hover {
 #whatsapp-button {
   position: fixed;
   bottom: 20px;
-  right: 20px; 
+  right: 20px;
   z-index: 1000;
 }
 
 #whatsapp-button img {
   width: 60px;
-  height: 60px; 
+  height: 60px;
   border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
 #whatsapp-button:hover img {
-  transform: scale(1.1); 
+  transform: scale(1.1);
+}
+
+/* footer */
+.footer {
+  background-color: #5e0708;
+  padding: 70px 0;
+}
+
+.footer-container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: warp;
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.footer-col h3 {
+  font-size: 18px;
+  color: white;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+}
+
+.footer-col p {
+  font-size: 18px;
+  color: white;
+  text-transform: capitalize;
+  margin: 30px;
+}
+
+.footer-col a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+.footer-col .social-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-col .social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+  font-size: 18px;
+}
+
+
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+.footer-col iframe {
+  border-radius: 10px;
+}
+
+.footer-bottom {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Footer Responsif */
+@media screen and (max-width: 768px) {
+  .footer-col {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col iframe {
+    width: 200px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-col {
+    width: 100%;
+  }
+
+  .footer-col p {
+    margin: 20px 0;
+  }
+
+  .footer {
+    padding: 40px 0;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-col iframe {
+    width: 200px;
+    height: auto;
+  }
 }
