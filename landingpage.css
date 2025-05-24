@@ -1076,6 +1076,7 @@ ul {
 /* Responsive - Tablet */
 @media screen and (max-width: 768px) {
   .testimonialbox {
+    max-width: 100px;
     padding: 14px;
     font-size: 14px;
   }
