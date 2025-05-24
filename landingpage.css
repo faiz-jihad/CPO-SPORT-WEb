@@ -447,7 +447,6 @@ button {
   margin: 0;
   padding: 0px;
 }
-
 .table {
   text-align: center;
   max-width: 800px;
@@ -457,7 +456,6 @@ button {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 .table-responsive {
   overflow-x: auto;
   margin-top: 20px;
@@ -468,14 +466,12 @@ button {
   margin-top: 20px;
   border-collapse: collapse;
 }
-
 .booking-table th,
 .booking-table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
-
 .booking-table th {
   background-color: #007bff;
   color: white;
@@ -901,6 +897,19 @@ ul {
   }
 }
 
+/* Komentar Section Responsif */
+@media screen and (max-width: 600px) {
+  #comment-section {
+    margin: 10px;
+    padding: 8px;
+  }
+
+  textarea {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
 /* Footer Responsif */
 @media screen and (max-width: 768px) {
   .footer-col {
@@ -944,235 +953,160 @@ ul {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+/* General Swiper Container */
+.swiper {  
+  width: 100%;  
+  max-width: 600px; /* Max slide width */  
+  margin: 0;
+}  
 
-/* komentar */
-/* === Swiper Container === */
-.swiper {
-  width: 100%;
-  padding: 20px 0;
-  box-sizing: border-box;
-}
+/* Individual Slide */  
+.swiper-slide {  
+  display: flex;  
+  justify-content: center;  
+  padding: 20px; /* Padding around content */  
+  width: 100%; /* Full slide width */  
+  max-width: 300px; /* Max width for larger screens */  
+  margin-bottom: 15px; /* Space between slides */  
+}  
 
-/* === Swiper Slide === */
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-  width: 100%;
-}
+/* Testimonial Box Styling */  
+.testimonialbox {  
+  background: white;  
+  padding: 20px;  
+  border-radius: 16px;  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
+  width: 100%;  
+  max-width: 360px; /* Max box width */  
+  min-height: 120px;  
+  display: flex;  
+  flex-direction: column;  
+  justify-content: space-between;  
+  text-align: center; /* Center text */  
+  background-color: rgb(255, 255, 255);
+}  
 
-/* === Testimonial Box === */
-.testimonialbox {
-  background: #fff;
-  width: 100%;
-  max-width: 360px;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  text-align: left;
-}
+/* Section Styling */  
+.section {  
+  position: relative;  
+  width: 100%;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  padding: 20px; /* Padding around section */  
+}  
 
-/* === Quote Image === */
-.testimonialbox .quote {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 10px;
-}
+/* Quote Styling */  
+.testimonialbox .quote {  
+  font-size: 24px; /* Quote size */  
+  margin-bottom: 10px;  
+}  
 
-/* === User Info === */
-.user-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 14px;
-}
+/* User Info Styling */  
+.user-info {  
+  font-size: 12px;  
+  margin-top: 10px;  
+  flex-direction: column;  
+  align-items: center; /* Center user info */  
+}  
 
-.user-info .nama {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 4px;
-}
+.user-info .nama {  
+  margin-bottom: 5px; /* Space between name and date */  
+}  
 
-.user-info .tanggal {
-  font-size: 12px;
-  color: #777;
-}
+.user-info .tanggal {  
+  font-size: 12px; /* Smaller font for date */  
+  color: #777; /* Softer color for date */  
+  margin-top: 2%; /* Space between name and date */  
+}  
 
-/* === Komentar Text === */
-.komentar {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-  line-height: 1.5;
-  word-wrap: break-word;
-}
+/* Kommentar Styling */  
+.komentar {  
+  margin-top: 10px;  
+  text-align: left; /* Align text to the left */  
+  font-size: medium; /* Maintain readability */  
+  font-weight: 100;  
+}  
 
-/* === Comment Section === */
-#comment-section {
-  padding: 20px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  max-width: 800px;
-}
+/* Responsive Styles */  
+@media screen and (max-width: 768px) {  
+  .testimonialbox {  
+    padding: 15px; /* Reduce padding */  
+    width: 100px; /* Full width */  
+  }  
 
-#comment-section h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+  .swiper-slide {  
+    max-width: 100px; /* Allow more space on mobile */  
+  }  
 
-#comment-form {
-  margin-top: 20px;
-}
+  .quote {  
+    font-size: 20px; /* Smaller quote size */  
+  }  
 
-#comment-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
-  resize: vertical;
-  min-height: 100px;
-  box-sizing: border-box;
-}
+  .user-info {  
+    font-size: 12px; /* Smaller font size */  
+  }  
+}  
 
-.comment-btn {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #0077cc;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
+/* Mobile Specific Styles */  
+@media (max-width: 480px) {  
+  .quote {  
+    font-size: 18px; /* Further reduce quote size */  
+  }  
 
-.comment-btn:hover {
-  background-color: #005fa3;
-}
+  .komentar {  
+    font-size: 15px;  
+    text-align: center; /* Center comments */  
+  }  
 
-/* === Section === */
-.section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 10px;
-  box-sizing: border-box;
-}
+  .testimonialbox {  
+    padding: 20px; /* Adjust padding */  
+    width: 80%;  
+  }  
 
-/* === Swiper Pagination === */
-.swiper-pagination {
-  margin-top: 10px;
-}
+  .user-info {  
+    font-size: 10px; /* Smaller font size */  
+  }  
 
-/* === Responsive – Tablet === */
-@media screen and (max-width: 768px) {
-  .testimonialbox {
-    padding: 16px;
-    max-width: 100%;
-  }
+  .user-info .nama {  
+    font-size: 20px; /* Further reduce name size */  
+  }  
 
-  .swiper-slide {
-    padding: 8px;
-  }
+  .user-info .tanggal {  
+    font-size: 15px; /* Adjust date size */  
+  }  
 
-  .komentar {
-    font-size: 13px;
-  }
-
-  .user-info .nama {
-    font-size: 14px;
-  }
-
-  .user-info .tanggal {
-    font-size: 12px;
-  }
-
-  #comment-section {
-    padding: 16px;
-  }
-
-  #comment-form textarea {
-    font-size: 13px;
-  }
-}
-
-/* === Responsive – Mobile === */
-@media screen and (max-width: 480px) {
-  .testimonialbox {
-    padding: 14px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .swiper-slide {
-    padding: 6px;
-    max-width: 100%;
-  }
-
-  .komentar {
-    font-size: 13px;
-    text-align: left;
-  }
-
-  .user-info .nama {
-    font-size: 13px;
-  }
-
-  .user-info .tanggal {
-    font-size: 11px;
-  }
-
-  #comment-section {
-    padding: 12px;
-    margin: 10px;
-  }
-
-  .comment-btn {
-    width: 100%;
-  }
+  .swiper-slide {  
+    max-width: 100%; /* Full width on very small screens */  
+    justify-content: center; /* Center content */  
+    padding: 10px; /* Adjust padding */  
+    margin-bottom: 10px;  
+  }  
 }
 
 
 /* whatsapp style */
 #whatsapp-button {
-  position: fixed;
-  /* Membuat tombol tetap di posisi yang ditentukan */
-  bottom: 20px;
-  /* Jarak dari bawah */
-  right: 20px;
-  /* Jarak dari kanan */
-  z-index: 1000;
-  /* Pastikan tombol berada di atas konten lain */
+    position: fixed; /* Membuat tombol tetap di posisi yang ditentukan */
+    bottom: 20px;     /* Jarak dari bawah */
+    right: 20px;      /* Jarak dari kanan */
+    z-index: 1000;    /* Pastikan tombol berada di atas konten lain */
 }
 
 #whatsapp-button img {
-  width: 60px;
-  /* Ukuran gambar tombol */
-  height: 60px;
-  /* Ukuran gambar tombol */
-  border-radius: 50%;
-  /* Membuat tombol berbentuk lingkaran */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  /* Menambahkan efek bayangan */
-  transition: transform 0.3s ease;
-  /* Animasi saat hover */
+    width: 60px;  /* Ukuran gambar tombol */
+    height: 60px; /* Ukuran gambar tombol */
+    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Menambahkan efek bayangan */
+    transition: transform 0.3s ease; /* Animasi saat hover */
 }
 
 #whatsapp-button:hover img {
-  transform: scale(1.1);
-  /* Menambahkan efek pembesaran saat hover */
+    transform: scale(1.1); /* Menambahkan efek pembesaran saat hover */
 }
