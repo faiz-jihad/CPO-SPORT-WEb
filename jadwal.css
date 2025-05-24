@@ -279,8 +279,6 @@ nav ul li a:hover {
 .sub-menu-link:hover p {
   font-weight: 600;
 }
-
-/* table */
 .table-container {
   font-family: "Poppins", sans-serif;
   margin: 30px auto 0;
@@ -293,18 +291,18 @@ nav ul li a:hover {
   text-align: center;
 }
 
+.filter-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .filter-container h2 {
   font-size: 24px;
   margin-bottom: 10px;
   color: #333;
 }
 
-.filter-container {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* Default: Desktop (horizontal) */
+/* Desktop: horizontal */
 .filter-container form {
   display: flex;
   flex-direction: row;
@@ -330,6 +328,7 @@ nav ul li a:hover {
   border: 1px solid #ccc;
   border-radius: 8px;
   transition: border-color 0.3s ease;
+  width: auto;
 }
 
 .filter-container select:focus {
@@ -337,7 +336,7 @@ nav ul li a:hover {
   border-color: #bd2d2d;
 }
 
-/* Responsif: Mobile (vertikal) */
+/* Mobile: vertical */
 @media screen and (max-width: 768px) {
   .filter-container form {
     flex-direction: column;
@@ -352,20 +351,23 @@ nav ul li a:hover {
   .filter-container select {
     width: 100%;
   }
+
+  .filter-container h2 {
+    font-size: 18px;
+  }
 }
 
-
-
+/* Table */
 .table {
   background: white;
   padding: 20px;
   border-radius: 10px;
-  overflow-x: auto;
 }
 
 .table-responsive {
   margin-top: 20px;
   overflow-x: auto;
+  display: block;
 }
 
 .booking-table {
@@ -397,40 +399,12 @@ nav ul li a:hover {
   background-color: #ffecec;
 }
 
-/* Mobile Responsive */
+/* Responsif Mobile: kecilkan font */
 @media screen and (max-width: 768px) {
-
   .table-container,
   .table {
     width: 95%;
     padding: 10px;
-    overflow-x: auto;
-  }
-
-  .filter-container form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .filter-container label {
-    text-align: left;
-    margin-bottom: 4px;
-  }
-
-  .filter-container select {
-    width: 100%;
-  }
-
-  .booking-table {
-    overflow-x: auto;
-  }
-
-  .table-responsive {
-    overflow-x: auto;
-  }
-
-  .table-responsive table {
-    overflow-x: auto;
   }
 
   .booking-table th,
@@ -438,11 +412,8 @@ nav ul li a:hover {
     padding: 6px;
     font-size: 13px;
   }
-
-  .filter-container h2 {
-    font-size: 18px;
-  }
 }
+
 
 /* Dropdown Menu untuk Navbar Kecil */
 @media screen and (max-width: 480px) {
