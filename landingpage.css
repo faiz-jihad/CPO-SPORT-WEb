@@ -973,6 +973,7 @@ ul {
 
 /* Testimonial Box */
 .testimonialbox {
+  background: #fff;
   padding: 16px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -1085,8 +1086,7 @@ ul {
   }
 
   .testimonialbox {
-
-    max-width: 10px;
+    max-width: 280px;
     padding: 14px;
   }
 
@@ -1128,7 +1128,7 @@ ul {
   }
 
   .testimonialbox {
-    max-width: 10%;
+    max-width: 90%;
     padding: 12px;
     font-size: 13px;
   }
