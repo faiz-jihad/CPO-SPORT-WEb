@@ -289,7 +289,7 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
         <br>
         <hr>
         <div class="footer-col">
-          <p>Copyright <a href="Admin/loginadmin.php">@</a> 2025</p>
+          <p>Polindra <a href="Admin/loginadmin.php">@</a> 2025</p>
         </div>
       </div>
     </div>
