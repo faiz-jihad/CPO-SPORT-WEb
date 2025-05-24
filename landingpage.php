@@ -189,51 +189,44 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
       <li></li>
     </ul>
   </div>
-  <!-- Fitur komentar -->
   <div data-aos="fade-up" data-aos-duration="2000" id="comment-section">
     <h2>Ulasan</h2>
 
-    <div id="comments-container">
-      <!-- List komentar (akan diisi oleh JavaScript) -->
-      <div id="comments-list"></div>
-
-      <!-- Form komentar -->
-      <div id="comment-form">
-        <p>Berikan Ulasan Anda</p>
-        <form action="ulasan.php" method="post">
-          <textarea id="commentText" name="komentar" placeholder="Ketik ulasan anda..." required></textarea>
-          <button class="comment-btn" type="submit">Kirim ulasan</button>
-        </form>
-      </div>
+    <!-- Form komentar -->
+    <div id="comment-form">
+      <p>Berikan Ulasan Anda</p>
+      <form id="ulasanForm" method="post">
+        <textarea id="commentText" name="komentar" placeholder="Ketik ulasan anda..." required></textarea>
+        <button class="comment-btn" type="submit">Kirim ulasan</button>
+      </form>
     </div>
-    <section>
-      <section class="section">
-        <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
-            <?php
-            include 'koneksi.php';
-            $query = mysqli_query($conn, "SELECT * FROM ulasan ORDER BY tanggal DESC LIMIT 10");
-            while ($row = mysqli_fetch_assoc($query)) :
-            ?>
-              <div class="swiper-slide">
-                <div class="testimonialbox">
-                  <div class="user-info">
-                    <img src="iconkomen.jpg" alt="quote" class="quote">
-                    <strong class="nama"><?= htmlspecialchars($row['nama']); ?></strong><br>
-                    <small class="tanggal"><?= date('d M Y', strtotime($row['tanggal'])); ?></small>
-                  </div>
-                  <div class="komentar">
-                    <p><?= nl2br(htmlspecialchars($row['komentar'])); ?></p>
-                  </div>
+
+    <!-- Daftar komentar -->
+    <div class="section">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <?php
+          include 'koneksi.php';
+          $query = mysqli_query($conn, "SELECT * FROM ulasan ORDER BY tanggal DESC LIMIT 10");
+          while ($row = mysqli_fetch_assoc($query)) :
+          ?>
+            <div class="swiper-slide">
+              <div class="testimonialbox">
+                <div class="user-info">
+                  <img src="iconkomen.jpg" alt="quote" class="quote">
+                  <strong class="nama"><?= htmlspecialchars($row['nama']); ?></strong><br>
+                  <small class="tanggal"><?= date('d M Y', strtotime($row['tanggal'])); ?></small>
+                </div>
+                <div class="komentar">
+                  <p><?= nl2br(htmlspecialchars($row['komentar'])); ?></p>
                 </div>
               </div>
-            <?php endwhile; ?>
-          </div>
-
-          <!-- Pagination -->
-          <div class="swiper-pagination"></div>
+            </div>
+          <?php endwhile; ?>
         </div>
-      </section>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
   </div>
   <!-- <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
           slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
