@@ -362,7 +362,7 @@ nav ul li a:hover {
     overflow-x: auto;
   }
 
-  .filter-container {
+  .filter-container form{
     flex-direction: column;
     align-items: center;
   }
