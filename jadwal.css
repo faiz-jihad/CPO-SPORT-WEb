@@ -311,7 +311,6 @@ nav ul li a:hover {
   flex-wrap: wrap;
 }
 
-/* Label dan Select */
 .filter-container label {
   font-size: 14px;
   font-weight: 500;
@@ -339,14 +338,14 @@ nav ul li a:hover {
 /* Tabel Container */
 .table {
   background: #fff;
-  padding: 0;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .table-responsive {
   margin-top: 24px;
   overflow-x: auto;
-  display: block;
+  width: 100%;
 }
 
 /* Tabel */
@@ -400,64 +399,11 @@ nav ul li a:hover {
     width: 100%;
   }
 
-  .booking-table th,
-  .booking-table td {
-    padding: 8px;
-    font-size: 13px;
-  }
-
   .filter-container h2 {
     font-size: 18px;
   }
-}
 
-/* Table */
-.table {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.table-responsive {
-  margin-top: 20px;
-  overflow-x: auto;
-  display: block;
-}
-
-.booking-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 768px;
-}
-
-.booking-table th,
-.booking-table td {
-  border: 1px solid #ddd;
-  padding: 10px 12px;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 15px;
-}
-
-.booking-table th {
-  background-color: #bd2d2d;
-  color: white;
-  font-weight: 600;
-}
-
-.booking-table tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.booking-table tr:hover {
-  background-color: #ffecec;
-}
-
-/* Responsif Mobile: kecilkan font */
-@media screen and (max-width: 768px) {
-  .table-container,
   .table {
-    width: 95%;
     padding: 10px;
   }
 
