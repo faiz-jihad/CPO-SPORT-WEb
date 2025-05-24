@@ -1088,7 +1088,8 @@ ul {
   }
 
   .testimonialbox {
-    max-width: 160px;
+
+    max-width: 10px;
     padding: 14px;
   }
 
@@ -1130,7 +1131,7 @@ ul {
   }
 
   .testimonialbox {
-    max-width: 50%;
+    max-width: 10%;
     padding: 12px;
     font-size: 13px;
   }
