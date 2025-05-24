@@ -1107,38 +1107,6 @@ ul {
   }
 }
 
-/* HP Kecil */
-@media screen and (max-width: 480px) {
-  #comment-section {
-    padding: 12px;
-    margin: 10px;
-  }
-
-  #comment-form textarea {
-    font-size: 13px;
-    padding: 10px;
-  }
-
-  .swiper {
-    padding: 10px 0;
-  }
-
-  .swiper-slide {
-    max-width: 100%;
-  }
-
-  .testimonialbox {
-    max-width: 90%;
-    padding: 12px;
-    font-size: 13px;
-  }
-
-  .komentar {
-    font-size: 13px;
-  }
-}
-
-
 
 /* whatsapp style */
 #whatsapp-button {
