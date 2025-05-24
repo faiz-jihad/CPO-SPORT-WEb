@@ -189,20 +189,24 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
       <li></li>
     </ul>
   </div>
+  <!-- Fitur komentar -->
   <div data-aos="fade-up" data-aos-duration="2000" id="comment-section">
     <h2>Ulasan</h2>
 
-    <!-- Form komentar -->
-    <div id="comment-form">
-      <p>Berikan Ulasan Anda</p>
-      <form id="ulasanForm" method="post">
-        <textarea id="commentText" name="komentar" placeholder="Ketik ulasan anda..." required></textarea>
-        <button class="comment-btn" type="submit">Kirim ulasan</button>
-      </form>
-    </div>
+    <div id="comments-container">
+      <!-- List komentar (akan diisi oleh JavaScript) -->
+      <div id="comments-list"></div>
 
-    <!-- Daftar komentar -->
-    <div class="section">
+      <!-- Form komentar -->
+      <div id="comment-form">
+        <p>Berikan Ulasan Anda</p>
+        <form action="ulasan.php" method="post">
+          <textarea id="commentText" name="komentar" placeholder="Ketik ulasan anda..." required></textarea>
+          <button class="comment-btn" type="submit">Kirim ulasan</button>
+        </form>
+      </div>
+    </div>
+    <section class="section">
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           <?php
@@ -224,9 +228,11 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
             </div>
           <?php endwhile; ?>
         </div>
+
+        <!-- Pagination -->
         <div class="swiper-pagination"></div>
       </div>
-    </div>
+    </section>
   </div>
   <!-- <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
           slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
@@ -239,8 +245,6 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
             <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
           </swiper-slide>
         </swiper-container> -->
-
-  </section>
   </div>
   <a href="https://wa.me/6285846801239" id="whatsapp-button" target="_blank">
     <img src="wa.png" alt="WhatsApp" />
