@@ -6,6 +6,22 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+/* Typography Responsif */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 1.2em;
+  }
+}
+
 body {
   font-family: "Poppins", sans-serif;
   /* Menggunakan font Poppins */
@@ -881,35 +897,6 @@ ul {
   }
 }
 
-/* Typography Responsif */
-@media screen and (max-width: 480px) {
-  body {
-    font-size: 12px;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 1.2em;
-  }
-}
-
-/* Komentar Section Responsif */
-@media screen and (max-width: 600px) {
-  #comment-section {
-    margin: 10px;
-    padding: 8px;
-  }
-
-  textarea {
-    padding: 8px;
-    font-size: 12px;
-  }
-}
-
 /* Footer Responsif */
 @media screen and (max-width: 768px) {
   .footer-col {
@@ -959,136 +946,169 @@ ul {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-/* General Swiper Container */
-.swiper {  
-  width: 100%;  
-  max-width: 600px; /* Max slide width */  
-  margin: 0;
-}  
 
-/* Individual Slide */  
-.swiper-slide {  
-  display: flex;  
-  justify-content: center;  
-  padding: 20px; /* Padding around content */  
-  width: 100%; /* Full slide width */  
-  max-width: 300px; /* Max width for larger screens */  
-  margin-bottom: 15px; /* Space between slides */  
-}  
-
-/* Testimonial Box Styling */  
-.testimonialbox {  
-  background: white;  
-  padding: 20px;  
-  border-radius: 16px;  
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-  width: 100%;  
-  max-width: 360px; /* Max box width */  
-  min-height: 120px;  
-  display: flex;  
-  flex-direction: column;  
-  justify-content: space-between;  
-  text-align: center; /* Center text */  
-  background-color: rgb(255, 255, 255);
-}  
-
-/* Section Styling */  
-.section {  
-  position: relative;  
-  width: 100%;  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  padding: 20px; /* Padding around section */  
-}  
-
-/* Quote Styling */  
-.testimonialbox .quote {  
-  font-size: 24px; /* Quote size */  
-  margin-bottom: 10px;  
-}  
-
-/* User Info Styling */  
-.user-info {  
-  font-size: 12px;  
-  margin-top: 10px;  
-  flex-direction: column;  
-  align-items: center; /* Center user info */  
-}  
-
-.user-info .nama {  
-  margin-bottom: 5px; /* Space between name and date */  
-}  
-
-.user-info .tanggal {  
-  font-size: 12px; /* Smaller font for date */  
-  color: #777; /* Softer color for date */  
-  margin-top: 2%; /* Space between name and date */  
-}  
-
-/* Kommentar Styling */  
-.komentar {  
-  margin-top: 10px;  
-  text-align: left; /* Align text to the left */  
-  font-size: medium; /* Maintain readability */  
-  font-weight: 100;  
-}  
-
-/* Responsive Styles */  
-@media screen and (max-width: 768px) {  
-  .testimonialbox {  
-    padding: 15px; /* Reduce padding */  
-    width: 100px; /* Full width */  
-  }  
-
-  .swiper-slide {  
-    max-width: 100px; /* Allow more space on mobile */  
-  }  
-
-  .quote {  
-    font-size: 20px; /* Smaller quote size */  
-  }  
-
-  .user-info {  
-    font-size: 12px; /* Smaller font size */  
-  }  
-}  
-
-/* Mobile Specific Styles */  
-@media (max-width: 480px) {  
-  .quote {  
-    font-size: 18px; /* Further reduce quote size */  
-  }  
-
-  .komentar {  
-    font-size: 15px;  
-    text-align: center; /* Center comments */  
-  }  
-
-  .testimonialbox {  
-    padding: 20px; /* Adjust padding */  
-    width: 80%;  
-  }  
-
-  .user-info {  
-    font-size: 10px; /* Smaller font size */  
-  }  
-
-  .user-info .nama {  
-    font-size: 20px; /* Further reduce name size */  
-  }  
-
-  .user-info .tanggal {  
-    font-size: 15px; /* Adjust date size */  
-  }  
-
-  .swiper-slide {  
-    max-width: 100%; /* Full width on very small screens */  
-    justify-content: center; /* Center content */  
-    padding: 10px; /* Adjust padding */  
-    margin-bottom: 10px;  
-  }  
+/* komentar */
+/* Swiper Container */
+.swiper {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px 0;
 }
+
+/* Slide */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+/* Testimonial Box */
+.testimonialbox {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 360px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+/* Section Layout */
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Quote Image */
+.testimonialbox .quote {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+}
+
+.user-info .nama {
+  font-weight: bold;
+}
+
+.user-info .tanggal {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Komentar */
+.komentar {
+  font-size: 15px;
+  color: #333;
+}
+
+/* Comment Section */
+#comment-section {
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+#comment-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#comment-form {
+  margin-top: 20px;
+}
+
+#comment-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.comment-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-btn:hover {
+  background-color: #005fa3;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .swiper-slide {
+    max-width: 90%;
+  }
+
+  .testimonialbox {
+    padding: 15px;
+  }
+
+  .komentar {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #comment-section {
+    padding: 12px;
+    margin: 10px;
+  }
+
+  #comment-form textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .testimonialbox {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .user-info {
+    font-size: 12px;
+  }
+
+  .user-info .nama {
+    font-size: 14px;
+  }
+
+  .user-info .tanggal {
+    font-size: 12px;
+  }
+}
+
+
+/* whatsapp style */
 #whatsapp-button {
     position: fixed; /* Membuat tombol tetap di posisi yang ditentukan */
     bottom: 20px;     /* Jarak dari bawah */

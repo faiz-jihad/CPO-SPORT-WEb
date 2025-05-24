@@ -234,10 +234,6 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
           <div class="swiper-pagination"></div>
         </div>
       </section>
-
-
-
-
   </div>
   <!-- <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
           slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
