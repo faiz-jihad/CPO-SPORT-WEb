@@ -1091,22 +1091,21 @@ ul {
 }
 
 
-/* whatsapp style */
 #whatsapp-button {
-    position: fixed; /* Membuat tombol tetap di posisi yang ditentukan */
-    bottom: 20px;     /* Jarak dari bawah */
-    right: 20px;      /* Jarak dari kanan */
-    z-index: 1000;    /* Pastikan tombol berada di atas konten lain */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
 #whatsapp-button img {
-    width: 60px;  /* Ukuran gambar tombol */
-    height: 60px; /* Ukuran gambar tombol */
-    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Menambahkan efek bayangan */
-    transition: transform 0.3s ease; /* Animasi saat hover */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 #whatsapp-button:hover img {
-    transform: scale(1.1); /* Menambahkan efek pembesaran saat hover */
+  transform: scale(1.1);
 }
