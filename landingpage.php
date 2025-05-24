@@ -207,7 +207,7 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
       </div>
     </div>
     <section class="section">
-      <div class="swiper mySwiper">
+      <div class="swiper-mySwiper">
         <div class="swiper-wrapper">
           <?php
           include 'koneksi.php';
@@ -293,7 +293,7 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    const swiper = new Swiper('.swiper', {
+    const swiper = new Swiper('.swiper-mySwiper', {
       loop: true,
       pagination: {
         spaceBetween: 10,
