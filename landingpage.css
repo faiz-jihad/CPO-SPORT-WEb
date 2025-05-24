@@ -954,55 +954,41 @@ ul {
 
 /* komentar */
 /* Swiper Container */
+/* Swiper Container */
 .swiper {
   width: 100%;
-  max-width: 600px;
-  margin: auto;
   padding: 20px 0;
   box-sizing: border-box;
 }
 
-/* Slide */
+/* Swiper Slide */
 .swiper-slide {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 10px;
-  width: 100%;
   box-sizing: border-box;
 }
 
 /* Testimonial Box */
 .testimonialbox {
   background: #fff;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 300px;
-  min-height: 120px;
+  max-width: 100%;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: left;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  text-align: left;
-  transition: transform 0.3s;
-}
-
-.testimonialbox:hover {
-  transform: scale(1.02);
-}
-
-/* Section Layout */
-.section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
 }
 
 /* Quote Image */
 .testimonialbox .quote {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   margin-bottom: 6px;
 }
 
@@ -1010,8 +996,7 @@ ul {
 .user-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .user-info .nama {
@@ -1019,24 +1004,24 @@ ul {
 }
 
 .user-info .tanggal {
-  font-size: 11px;
-  color: #777;
+  font-size: 12px;
+  color: #888;
 }
 
-/* Komentar */
+/* Komentar Text */
 .komentar {
   font-size: 14px;
   color: #333;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 /* Comment Section */
 #comment-section {
   padding: 20px;
-  background: #f7f7f7;
+  background: #f9f9f9;
   border-radius: 10px;
   margin: 20px auto;
-  max-width: 720px;
+  max-width: 800px;
 }
 
 #comment-section h2 {
@@ -1050,13 +1035,13 @@ ul {
 
 #comment-form textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 14px;
   resize: vertical;
-  min-height: 100px;
   box-sizing: border-box;
+  min-height: 100px;
 }
 
 .comment-btn {
@@ -1065,37 +1050,62 @@ ul {
   background-color: #0077cc;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
 .comment-btn:hover {
   background-color: #005fa3;
 }
 
-/* Tablet & Mobile */
+/* Section */
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+  margin-top: 10px;
+}
+
+/* Responsive - Tablet */
 @media screen and (max-width: 768px) {
-  .swiper {
-    max-width: 100%;
-  }
-
-  .swiper-slide {
-    padding: 8px;
-  }
-
   .testimonialbox {
-    max-width: 280px;
     padding: 14px;
+    font-size: 14px;
   }
 
   .komentar {
     font-size: 13px;
   }
 
-  .user-info {
-    font-size: 12px;
+  .swiper-slide {
+    padding: 8px;
+  }
+
+  #comment-section {
+    padding: 16px;
+  }
+}
+
+/* Responsive - HP */
+@media screen and (max-width: 480px) {
+  .swiper-slide {
+    padding: 6px;
+  }
+
+  .testimonialbox {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .komentar {
+    font-size: 13px;
   }
 
   .user-info .nama {
@@ -1105,10 +1115,7 @@ ul {
   .user-info .tanggal {
     font-size: 11px;
   }
-}
 
-/* HP Kecil */
-@media screen and (max-width: 480px) {
   #comment-section {
     padding: 12px;
     margin: 10px;
@@ -1119,22 +1126,9 @@ ul {
     padding: 10px;
   }
 
-  .swiper {
-    padding: 10px 0;
-  }
-
-  .swiper-slide {
-    max-width: 100%;
-  }
-
-  .testimonialbox {
-    max-width: 90%;
-    padding: 12px;
-    font-size: 13px;
-  }
-
-  .komentar {
-    font-size: 13px;
+  .comment-btn {
+    width: 100%;
+    padding: 10px;
   }
 }
 
