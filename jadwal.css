@@ -359,6 +359,11 @@ nav ul li a:hover {
   .table {
     width: 95%;
     padding: 10px;
+    overflow-x: auto;
+  }
+
+  .table-responsive{
+    overflow-x: auto;
   }
 
   .booking-table th,
