@@ -26,7 +26,7 @@
             color: white;
             padding: 10px 20px;
             z-index: 999;
-            background-color: #b11b1b;
+            background-color: #f9f9f9;
             margin-top: 0%;
         }
 
@@ -376,7 +376,6 @@
 
         /* footer */
         .footer {
-            width: 100vw;
             background-color: #5e0708;
             padding: 70px 0;
         }
