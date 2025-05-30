@@ -52,6 +52,13 @@ if (isset($_GET['logout'])) {
 </head>
 
 <body>
+    <div id="loading">
+        <div class="loader-container">
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
     <div class="container">
         <nav class="navbar">
             <img class="logo-cpo" src="logo-cpo.png" alt="">
@@ -214,6 +221,16 @@ if (isset($_GET['logout'])) {
     </footer>
 
     <script>
+        // loading
+        window.addEventListener("load", function() {
+            const loader = document.getElementById("loading");
+            loader.style.opacity = "0";
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500);
+        });
+
+
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("#booking");
             const paymentButton = document.querySelector("#pay-btn");

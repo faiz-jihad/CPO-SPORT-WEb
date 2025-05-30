@@ -5,6 +5,62 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* loading screen */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 6px solid transparent;
+  border-top: 6px solid #e60e0e;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 10px #ef7c7c;
+}
+
+.loader-container p {
+  margin-top: 15px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #555;
+  font-size: 16px;
+  letter-spacing: 1px;
+  animation: fadeIn 1.5s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background: url('lapangan_CPO.jpeg') no-repeat;
@@ -153,11 +209,11 @@ body {
 /* sidebar */
 @media (min-width: 768px) {
   .sidebar {
-      display: none;
+    display: none;
   }
 
   .menu-button {
-      display: none;
+    display: none;
   }
 
 }
@@ -165,7 +221,7 @@ body {
 /* hide menu */
 @media (max-width: 767px) {
   .navbar-menu {
-      display: none;
+    display: none;
   }
 }
 
@@ -203,50 +259,50 @@ nav ul li a:hover {
 /* Dropdown Menu untuk Navbar Kecil */
 @media screen and (max-width: 768px) {
   nav ul {
-      display: none;
+    display: none;
   }
 
   nav.active ul {
-      display: block;
-      background-color: white;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
+    display: block;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
   }
 }
 
 /* Navbar */
 @media screen and (max-width: 768px) {
   .navbar {
-      padding: 5px 10px;
+    padding: 5px 10px;
   }
 
   .profile-pic {
-      width: 30px;
-      height: 30px;
+    width: 30px;
+    height: 30px;
   }
 
   .menu-button {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .logo-cpo {
-      display: none;
+    display: none;
   }
 }
 
 /* sub menu */
 @media screen and (max-width: 768px) {
   .sub-menu-wrap {
-      width: 200px;
-      right: 2%;
-      font-size: 12px;
+    width: 200px;
+    right: 2%;
+    font-size: 12px;
   }
 
   .sub-menu-wrap img {
-      max-width: 25%;
-      height: auto;
+    max-width: 25%;
+    height: auto;
   }
 }
 
@@ -447,30 +503,30 @@ select:focus {
 /* booking */
 @media (max-width: 600px) {
   .booking {
-      padding: 20px;
+    padding: 20px;
   }
 
   .booking-container {
-      margin: 50px 5px;
+    margin: 50px 5px;
   }
 
   h1 {
-      font-size: 24px;
+    font-size: 24px;
   }
 
   .kategori-harga ul li {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   .note {
-      font-size: 12px;
+    font-size: 12px;
   }
 
 }
 
 @media (max-width: 768px) {
   .pay-btn {
-      margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 }
 
@@ -514,13 +570,13 @@ select:focus {
 
 @keyframes fadeInUp {
   0% {
-      opacity: 0;
-      transform: translateY(30px);
+    opacity: 0;
+    transform: translateY(30px);
   }
 
   100% {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -585,11 +641,13 @@ button.time-button:hover {
   cursor: not-allowed;
   border: 1px solid #aaa;
 }
+
 .time-button.selected {
   background-color: #3469db;
   color: white;
   border: 1px solid #2980b9;
 }
+
 /* pilih durasi */
 .durasi-control {
   display: flex;
@@ -623,28 +681,28 @@ button.time-button:hover {
 /* hidup jokowi */
 @media (max-width: 600px) {
   #button-container {
-      justify-content: flex-start;
-      gap: 6px;
+    justify-content: flex-start;
+    gap: 6px;
   }
 
   .time-button {
-      padding: 8px 10px;
-      font-size: 12px;
+    padding: 8px 10px;
+    font-size: 12px;
   }
 
   .durasi-control {
-      flex-direction: row;
-      gap: 8px;
+    flex-direction: row;
+    gap: 8px;
   }
 
   .durasi-button {
-      width: 36px;
-      height: 36px;
-      font-size: 20px;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
   }
 
   .durasi-display {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 

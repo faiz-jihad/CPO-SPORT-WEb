@@ -1200,6 +1200,168 @@ ul {
   }
 }
 
+/* form ulasan */
+.form-ulasan {
+  max-width: 600px;
+  margin: 50px auto;
+  background: #f9f9f9;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-ulasan h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.form-ulasan input[type="text"],
+.form-ulasan textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.form-ulasan button {
+  padding: 10px 20px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.form-ulasan button:hover {
+  background: #155fc4;
+}
+
+.rating {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rating input:checked~label,
+.rating label:hover,
+.rating label:hover~label {
+  color: #f5c518;
+}
+
+
+
+/* ulasan */
+.review-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.review-card {
+  border-bottom: 1px solid #d2d2d2;
+  padding: 20px 0;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-user {
+  display: flex;
+  align-items: center;
+}
+
+.review-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.review-username {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.review-date {
+  font-size: 13px;
+  color: #888;
+}
+
+.review-stars {
+  margin-top: 4px;
+}
+
+.star {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.star.filled {
+  color: #f4b400;
+}
+
+.review-text {
+  font-size: 15px;
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+.review-feedback {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.review-question {
+  font-size: 14px;
+  color: #444;
+}
+
+.btn-feedback {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 6px 14px;
+  margin: 0 4px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-feedback:hover {
+  background: #eee;
+}
+
+.lihat-semua-ulasan {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.lihat-semua-ulasan a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
 
 #whatsapp-button {
   position: fixed;

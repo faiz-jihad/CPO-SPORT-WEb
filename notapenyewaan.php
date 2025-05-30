@@ -26,6 +26,12 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
+    <div id="loading">
+        <div class="loader-container">
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
     <!-- Navbar -->
     <nav class="navbar">
         <img class="logo-cpo" src="logo-cpo.png" alt="">
@@ -131,6 +137,15 @@ if (!isset($_SESSION['user_id'])) {
 
 
     <script>
+        // loading
+        window.addEventListener("load", function() {
+            const loader = document.getElementById("loading");
+            loader.style.opacity = "0";
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500);
+        });
+
         AOS.init();
         // Format Waktu
         function formatJamMenit(waktuString) {

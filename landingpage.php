@@ -259,6 +259,78 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
       </div>
     </section>
   </div>
+
+
+
+
+  <!-- ulasan coba -->
+
+  <!-- form ulasan -->
+  <form action="proses-ulasan.php" method="post" class="form-ulasan">
+    <h3>Berikan Ulasan Anda</h3>
+
+    <div class="rating" required>
+      <input type="radio" name="bintang" value="5" id="star5"><label for="star5">★</label>
+      <input type="radio" name="bintang" value="4" id="star4"><label for="star4">★</label>
+      <input type="radio" name="bintang" value="3" id="star3"><label for="star3">★</label>
+      <input type="radio" name="bintang" value="2" id="star2"><label for="star2">★</label>
+      <input type="radio" name="bintang" value="1" id="star1"><label for="star1">★</label>
+    </div>
+
+    <textarea name="komentar" placeholder="Tulis ulasan Anda..." rows="5" required></textarea>
+    <button type="submit">Kirim Ulasan</button>
+  </form>
+
+  <!-- tampilan ulasan -->
+  <?php
+  include 'koneksi.php';
+
+  $query = "SELECT * FROM ulasan ORDER BY tanggal DESC LIMIT 10";
+  $result = mysqli_query($conn, $query);
+  ?>
+
+  <div class="review-container">
+    <h2>Semua Ulasan</h2>
+    <?php while ($row = mysqli_fetch_assoc($result)): ?>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-user">
+            <img src="iconkomen.jpg" class="review-avatar">
+            <div>
+              <div class="review-username"><?= htmlspecialchars($row['nama']) ?></div>
+              <div class="review-stars">
+                <?php for ($i = 1; $i <= 5; $i++): ?>
+                  <span class="star <?= $i <= $row['bintang'] ? 'filled' : '' ?>">★</span>
+                <?php endfor; ?>
+              </div>
+            </div>
+          </div>
+          <div class="review-date">
+            <?= date('d M Y', strtotime($row['tanggal'])) ?>
+          </div>
+        </div>
+        <div class="review-text"><?= nl2br(htmlspecialchars($row['komentar'])) ?></div>
+        <div class="review-feedback">
+          <?= rand(100, 5000) ?> orang merasa ulasan ini berguna
+        </div>
+        <div class="review-question">
+          Apakah konten ini berguna bagi Anda?
+          <button class="btn-feedback">Ya</button>
+          <button class="btn-feedback">Tidak</button>
+        </div>
+      </div>
+    <?php endwhile; ?>
+    <div class="lihat-semua-ulasan">
+      <a href="semua-ulasan.php">Lihat semua ulasan</a>
+    </div>
+  </div>
+
+
+
+
+
+
+
   <!-- <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
           slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
           coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
@@ -270,7 +342,6 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
             <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
           </swiper-slide>
         </swiper-container> -->
-  </div>
   <a href="https://wa.me/6285846801239" id="whatsapp-button" target="_blank">
     <img src="wa.png" alt="WhatsApp" />
   </a>
