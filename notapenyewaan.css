@@ -371,13 +371,12 @@
 
         /* footer */
         .footer {
-            width: 100vw;
             background-color: #5e0708;
             padding: 70px 0;
         }
 
         .footer-container {
-            width: 100%;
+            max-width: 100%;
             margin: auto;
         }
 
