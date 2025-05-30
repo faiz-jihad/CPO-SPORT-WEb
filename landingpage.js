@@ -1,7 +1,12 @@
 // loading
-  window.addEventListener("load", function () {
-    document.getElementById("loading").style.display = "none";
-  });
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loading");
+  loader.style.opacity = "0";
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 500);
+});
+
 
 // sidebar.js
 document.addEventListener("DOMContentLoaded", function () {

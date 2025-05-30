@@ -43,8 +43,12 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
 
 <body>
   <div id="loading">
-    <div class="spinner"></div>
+    <div class="loader-container">
+      <div class="loader"></div>
+      <p>Loading...</p>
+    </div>
   </div>
+
 
   <div class="container">
     <nav class="navbar">
