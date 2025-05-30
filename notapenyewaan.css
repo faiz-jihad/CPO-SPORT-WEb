@@ -12,7 +12,6 @@
             display: flex;
             flex-direction: column;
             margin: 0;
-            align-items: center;
         }
 
         /* Navbar styling */
@@ -377,6 +376,7 @@
 
         /* footer */
         .footer {
+            width: 100vw;
             background-color: #5e0708;
             padding: 70px 0;
         }
