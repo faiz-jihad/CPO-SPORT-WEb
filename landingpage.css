@@ -239,8 +239,6 @@ nav ul li a:hover {
   margin: 10px;
   border-radius: 8px;
   border: 5 px solid black;
-  display: flex;
-  /* Aktifkan Flexbox */
   align-items: center;
   /* Sejajarkan secara vertikal */
   justify-content: center;
