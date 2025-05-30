@@ -379,11 +379,10 @@
             width: 100vw;
             background-color: #5e0708;
             padding: 70px 0;
-            max-width: 1000px;
         }
 
         .footer-container {
-            width: 100%;
+            width: 100vw;
             margin: auto;
         }
 
