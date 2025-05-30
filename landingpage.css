@@ -239,6 +239,7 @@ nav ul li a:hover {
   margin: 10px;
   border-radius: 8px;
   border: 5 px solid black;
+  text-align: center;
 }
 
 .user-info {
