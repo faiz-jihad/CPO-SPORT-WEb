@@ -220,6 +220,19 @@ nav ul li a:hover {
   justify-content: center;
 }
 
+.sub-menu-wrap {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 100;
+}
+
+.sub-menu-wrap.open-menu {
+  display: block;
+}
+
+
 /* Ukuran lebih kecil untuk layar mobile */
 @media screen and (max-width: 480px) {
   .sub-menu-wrap {

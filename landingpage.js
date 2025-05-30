@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Sub-menu toggle function
+// Sub Menu
 let subMenu = document.getElementById("subMenu");
 
 function toggleMenu() {

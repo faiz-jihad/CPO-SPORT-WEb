@@ -73,9 +73,26 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
             <p>Logout</p>
             <span>></span>
           </a>
-
         </div>
       </div>
+
+      <script>
+        const subMenu = document.getElementById("subMenu");
+        const profilePic = document.querySelector(".profile-pic");
+
+        function toggleMenu() {
+          subMenu.classList.toggle("open-menu");
+        }
+
+        // Tutup submenu kalau klik di luar
+        document.addEventListener("click", function(event) {
+          // Jika klik tidak di submenu dan tidak di tombol profil
+          if (!subMenu.contains(event.target) && !profilePic.contains(event.target)) {
+            subMenu.classList.remove("open-menu");
+          }
+        });
+      </script>
+
 
     </nav>
     <div id="sidebar" class="sidebar">
