@@ -218,7 +218,6 @@ nav ul li a:hover {
   border: 5 px solid black;
   align-items: center;
   justify-content: center;
-  display: none;
   z-index: 100;
 }
 
