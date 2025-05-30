@@ -239,7 +239,12 @@ nav ul li a:hover {
   margin: 10px;
   border-radius: 8px;
   border: 5 px solid black;
-  text-align: center;
+  display: flex;
+  /* Aktifkan Flexbox */
+  align-items: center;
+  /* Sejajarkan secara vertikal */
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-info {
@@ -454,6 +459,7 @@ button {
   margin: 0;
   padding: 0px;
 }
+
 .table {
   text-align: center;
   max-width: 800px;
@@ -463,6 +469,7 @@ button {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .table-responsive {
   overflow-x: auto;
   margin-top: 20px;
@@ -473,12 +480,14 @@ button {
   margin-top: 20px;
   border-collapse: collapse;
 }
+
 .booking-table th,
 .booking-table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
 }
+
 .booking-table th {
   background-color: #007bff;
   color: white;
@@ -826,6 +835,7 @@ ul {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Spline+Sans:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -969,134 +979,164 @@ ul {
 
 
 /* General Swiper Container */
-.swiper {  
-  width: 100%;  
-  max-width: 600px; /* Max slide width */  
+.swiper {
+  width: 100%;
+  max-width: 600px;
+  /* Max slide width */
   margin: 0;
-}  
+}
 
-/* Individual Slide */  
-.swiper-slide {  
-  display: flex;  
-  justify-content: center;  
-  padding: 20px; /* Padding around content */  
-  width: 100%; /* Full slide width */  
-  max-width: 300px; /* Max width for larger screens */  
-  margin-bottom: 15px; /* Space between slides */  
-}  
+/* Individual Slide */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* Padding around content */
+  width: 100%;
+  /* Full slide width */
+  max-width: 300px;
+  /* Max width for larger screens */
+  margin-bottom: 15px;
+  /* Space between slides */
+}
 
-/* Testimonial Box Styling */  
-.testimonialbox {  
-  background: white;  
-  padding: 20px;  
-  border-radius: 16px;  
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-  width: 100%;  
-  max-width: 360px; /* Max box width */  
-  min-height: 120px;  
-  display: flex;  
-  flex-direction: column;  
-  justify-content: space-between;  
-  text-align: center; /* Center text */  
+/* Testimonial Box Styling */
+.testimonialbox {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 360px;
+  /* Max box width */
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  /* Center text */
   background-color: rgb(255, 255, 255);
-}  
+}
 
-/* Section Styling */  
-.section {  
-  position: relative;  
-  width: 100%;  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  padding: 20px; /* Padding around section */  
-}  
+/* Section Styling */
+.section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* Padding around section */
+}
 
-/* Quote Styling */  
-.testimonialbox .quote {  
-  font-size: 24px; /* Quote size */  
-  margin-bottom: 10px;  
-}  
+/* Quote Styling */
+.testimonialbox .quote {
+  font-size: 24px;
+  /* Quote size */
+  margin-bottom: 10px;
+}
 
-/* User Info Styling */  
-.user-info {  
-  font-size: 12px;  
-  margin-top: 10px;  
-  flex-direction: column;  
-  align-items: center; /* Center user info */  
-}  
+/* User Info Styling */
+.user-info {
+  font-size: 12px;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  /* Center user info */
+}
 
-.user-info .nama {  
-  margin-bottom: 5px; /* Space between name and date */  
-}  
+.user-info .nama {
+  margin-bottom: 5px;
+  /* Space between name and date */
+}
 
-.user-info .tanggal {  
-  font-size: 12px; /* Smaller font for date */  
-  color: #777; /* Softer color for date */  
-  margin-top: 2%; /* Space between name and date */  
-}  
+.user-info .tanggal {
+  font-size: 12px;
+  /* Smaller font for date */
+  color: #777;
+  /* Softer color for date */
+  margin-top: 2%;
+  /* Space between name and date */
+}
 
-/* Kommentar Styling */  
-.komentar {  
-  margin-top: 10px;  
-  text-align: left; /* Align text to the left */  
-  font-size: medium; /* Maintain readability */  
-  font-weight: 100;  
-}  
+/* Kommentar Styling */
+.komentar {
+  margin-top: 10px;
+  text-align: left;
+  /* Align text to the left */
+  font-size: medium;
+  /* Maintain readability */
+  font-weight: 100;
+}
 
-/* Responsive Styles */  
-@media screen and (max-width: 768px) {  
-  .testimonialbox {  
-    padding: 15px; /* Reduce padding */  
-    width: 100px; /* Full width */  
-  }  
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .testimonialbox {
+    padding: 15px;
+    /* Reduce padding */
+    width: 100px;
+    /* Full width */
+  }
 
-  .swiper-slide {  
-    max-width: 100px; /* Allow more space on mobile */  
-  }  
+  .swiper-slide {
+    max-width: 100px;
+    /* Allow more space on mobile */
+  }
 
-  .quote {  
-    font-size: 20px; /* Smaller quote size */  
-  }  
+  .quote {
+    font-size: 20px;
+    /* Smaller quote size */
+  }
 
-  .user-info {  
-    font-size: 12px; /* Smaller font size */  
-  }  
-}  
+  .user-info {
+    font-size: 12px;
+    /* Smaller font size */
+  }
+}
 
-/* Mobile Specific Styles */  
-@media (max-width: 480px) {  
-  .quote {  
-    font-size: 18px; /* Further reduce quote size */  
-  }  
+/* Mobile Specific Styles */
+@media (max-width: 480px) {
+  .quote {
+    font-size: 18px;
+    /* Further reduce quote size */
+  }
 
-  .komentar {  
-    font-size: 15px;  
-    text-align: center; /* Center comments */  
-  }  
+  .komentar {
+    font-size: 15px;
+    text-align: center;
+    /* Center comments */
+  }
 
-  .testimonialbox {  
-    padding: 20px; /* Adjust padding */  
-    width: 80%;  
-  }  
+  .testimonialbox {
+    padding: 20px;
+    /* Adjust padding */
+    width: 80%;
+  }
 
-  .user-info {  
-    font-size: 10px; /* Smaller font size */  
-  }  
+  .user-info {
+    font-size: 10px;
+    /* Smaller font size */
+  }
 
-  .user-info .nama {  
-    font-size: 20px; /* Further reduce name size */  
-  }  
+  .user-info .nama {
+    font-size: 20px;
+    /* Further reduce name size */
+  }
 
-  .user-info .tanggal {  
-    font-size: 15px; /* Adjust date size */  
-  }  
+  .user-info .tanggal {
+    font-size: 15px;
+    /* Adjust date size */
+  }
 
-  .swiper-slide {  
-    max-width: 100%; /* Full width on very small screens */  
-    justify-content: center; /* Center content */  
-    padding: 10px; /* Adjust padding */  
-    margin-bottom: 10px;  
-  }  
+  .swiper-slide {
+    max-width: 100%;
+    /* Full width on very small screens */
+    justify-content: center;
+    /* Center content */
+    padding: 10px;
+    /* Adjust padding */
+    margin-bottom: 10px;
+  }
 }
 
 
