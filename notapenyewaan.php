@@ -120,7 +120,6 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                 </div>
                 <br>
-                <hr>
                 <div class="footer-col">
                     <p>Polindra <a href="Admin/loginadmin.php">@</a> 2025</p>
                 </div>
