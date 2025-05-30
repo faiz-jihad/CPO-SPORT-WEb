@@ -215,7 +215,7 @@ nav ul li a:hover {
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.5s;
-  border: 5 px solid rgba(0, 0, 0, 0.1);
+  border: 5 px solid black;
 }
 
 /* Ukuran lebih kecil untuk layar mobile */
@@ -238,7 +238,7 @@ nav ul li a:hover {
   padding: 20px;
   margin: 10px;
   border-radius: 8px;
-  border: 5 px solid rgba(0, 0, 0, 0.1);
+  border: 5 px solid black;
 }
 
 .user-info {
