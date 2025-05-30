@@ -24,7 +24,7 @@ html {
   border: 5px solid #ccc;
   border-top-color: #3498db;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
