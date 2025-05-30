@@ -423,7 +423,7 @@ if (!isset($_SESSION['user_id'])) {
             <li class="menu-item"><a href="landingpage.php">Beranda</a></li>
             <li class="menu-item"><a href="halamanbooking.php">Booking</a></li>
             <li class="menu-item"><a href="notapenyewaan">Bukti Pemesanan</a></li>
-            <li class="menu-item"><a href="">Jadwal</a></li>
+            <li class="menu-item"><a href="jadwal.php">Jadwal</a></li>
         </ul>
     </div>
     <div data-aos="fade-up"
