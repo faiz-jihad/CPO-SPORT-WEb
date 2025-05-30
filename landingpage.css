@@ -223,6 +223,7 @@ nav ul li a:hover {
     width: 200px;
     /* Lebar lebih kecil saat mobile */
     right: 2%;
+    z-index: 1000;
     /* Geser sedikit agar tetap pas */
   }
 }
