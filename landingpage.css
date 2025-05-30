@@ -215,7 +215,7 @@ nav ul li a:hover {
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.5s;
-  border: 1 px solid rgba(0, 0, 0, 0.1);
+  border: 5 px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Ukuran lebih kecil untuk layar mobile */
