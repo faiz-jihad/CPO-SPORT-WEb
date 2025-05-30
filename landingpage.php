@@ -42,6 +42,10 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
 <?php endif; ?>
 
 <body>
+  <div id="loading">
+    <div class="spinner"></div>
+  </div>
+
   <div class="container">
     <nav class="navbar">
       <img class="logo-cpo" src="logo-cpo.png" alt="">

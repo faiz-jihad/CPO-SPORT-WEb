@@ -1,5 +1,9 @@
-// sidebar.js
+// loading
+  window.addEventListener("load", function () {
+    document.getElementById("loading").style.display = "none";
+  });
 
+// sidebar.js
 document.addEventListener("DOMContentLoaded", function () {
   const menuButton = document.getElementById("menu-button");
   const sidebar = document.getElementById("sidebar");
