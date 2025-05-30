@@ -216,6 +216,8 @@ nav ul li a:hover {
   overflow: hidden;
   transition: max-height 0.5s;
   border: 5 px solid black;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Ukuran lebih kecil untuk layar mobile */
@@ -240,7 +242,6 @@ nav ul li a:hover {
   border-radius: 8px;
   border: 5 px solid black;
   align-items: center;
-  /* Sejajarkan secara vertikal */
   justify-content: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
