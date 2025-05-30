@@ -31,12 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Sub Menu
-let subMenu = document.getElementById("subMenu");
 
-function toggleMenu() {
-  subMenu.classList.toggle("open-menu");
-}
 
 // slider.js
 
