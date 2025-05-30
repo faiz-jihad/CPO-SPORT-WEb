@@ -10,14 +10,14 @@ html {
 #loading {
   position: fixed;
   inset: 0;
-  background: linear-gradient(to bottom right, #f0f0f0, #e0e0e0);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
 }
 
-/* Loader wrapper */
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -34,25 +34,22 @@ html {
   box-shadow: 0 0 10px #ef7c7c;
 }
 
-/* Animasi teks */
 .loader-container p {
   margin-top: 15px;
   font-family: 'Segoe UI', sans-serif;
   color: #555;
   font-size: 16px;
   letter-spacing: 1px;
-  animation: fadeIn 5s ease-in-out infinite;
+  animation: fadeIn 1.5s ease-in-out infinite;
   opacity: 0.8;
 }
 
-/* Animasi mutar lingkaran */
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-/* Efek fade in/out teks */
 @keyframes fadeIn {
 
   0%,

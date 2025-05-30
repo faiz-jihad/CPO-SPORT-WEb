@@ -26,6 +26,13 @@ if (isset($_SESSION['login'])) {
 </head>
 
 <body>
+    <div id="loading">
+        <div class="loader-container">
+            <div class="loader"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
     <div data-aos="flip-left"
              data-aos-easing="ease-out-cubic"
              data-aos-duration="4000" class="wrapper">
@@ -63,6 +70,15 @@ if (isset($_SESSION['login'])) {
         </form>
     </div>
     <script>
+        // loading
+        window.addEventListener("load", function() {
+            const loader = document.getElementById("loading");
+            loader.style.opacity = "0";
+            setTimeout(() => {
+                loader.style.display = "none";
+            }, 500);
+        });
+
         const toggleButton = document.getElementById('toggleButton');
         const passwordField = document.getElementById('password');
 
