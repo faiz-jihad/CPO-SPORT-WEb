@@ -22,6 +22,7 @@ if (!isset($_SESSION['user_id'])) {
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link rel="stylesheet" href="notapenyewaan.css">
+
 </head>
 
 <body>
@@ -120,6 +121,7 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                 </div>
                 <br>
+                <hr>
                 <div class="footer-col">
                     <p>Polindra <a href="Admin/loginadmin.php">@</a> 2025</p>
                 </div>
