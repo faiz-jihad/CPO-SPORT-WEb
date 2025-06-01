@@ -2,8 +2,9 @@
 session_start();
 include 'koneksi.php';
 
-
 header('Content-Type: application/json');
+ob_clean(); // Bersihkan output buffer kalau ada
+// Pastikan tidak ada spasi/baris kosong di atas atau bawah file ini!
 
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(['success' => false, 'error' => 'Belum login']);
@@ -39,21 +40,4 @@ if ($stmt->execute()) {
 } else {
     echo json_encode(['success' => false, 'error' => 'Gagal menyimpan feedback']);
 }
-
-
-
-$ulasan_id = isset($_POST['ulasan_id']) ? intval($_POST['ulasan_id']) : 0;
-$feedback = $_POST['feedback'] ?? '';
-
-if ($ulasan_id > 0 && in_array($feedback, ['ya', 'tidak'])) {
-    $stmt = $conn->prepare("INSERT INTO feedback_ulasan (ulasan_id, feedback) VALUES (?, ?)");
-    $stmt->bind_param("is", $ulasan_id, $feedback);
-
-    if ($stmt->execute()) {
-        echo json_encode(['success' => true]);
-    } else {
-        echo json_encode(['success' => false, 'error' => 'Database error']);
-    }
-} else {
-    echo json_encode(['success' => false, 'error' => 'Invalid parameters']);
-}
+exit;

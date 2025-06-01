@@ -467,18 +467,25 @@ if (isset($_SESSION['alert'])) {
             },
             body: `ulasan_id=${ulasanId}&feedback=${feedback}`
           })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              Swal.fire('Terima kasih!', 'Feedback Anda telah dikirim.', 'success');
-              // Disable tombol
-              const buttons = ulasanBox.querySelectorAll('.feedback-btn');
-              buttons.forEach(btn => btn.disabled = true);
-            } else {
-              Swal.fire('Gagal', 'Feedback gagal dikirim. ' + (data.error || ''), 'error');
+          .then(response => response.text()) // <-- Ganti dulu ke text
+          .then(text => {
+            console.log('RESPON SERVER:', text);
+            try {
+              const data = JSON.parse(text);
+              if (data.success) {
+                Swal.fire('Terima kasih!', 'Feedback Anda telah dikirim.', 'success');
+                const buttons = ulasanBox.querySelectorAll('.feedback-btn');
+                buttons.forEach(btn => btn.disabled = true);
+              } else {
+                Swal.fire('Gagal', 'Feedback gagal dikirim. ' + (data.error || ''), 'error');
+              }
+            } catch (e) {
+              console.error('JSON Parse Error:', e);
+              Swal.fire('Error', 'Respon tidak valid dari server.', 'error');
             }
           })
           .catch(error => {
+            console.error('Fetch Error:', error);
             Swal.fire('Error', 'Terjadi kesalahan jaringan.', 'error');
           });
       });
