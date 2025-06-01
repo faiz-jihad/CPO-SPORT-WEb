@@ -610,10 +610,11 @@ button {
 }
 
 .buttons button {
+  font-size: 1.5rem;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #fff5;
+  background-color: #fff8;
   color: #fff;
   border: none;
   font-family: monospace;
@@ -1200,50 +1201,71 @@ ul {
   }
 }
 
-/* form ulasan */
+/* ===== Form Ulasan ===== */
 .form-ulasan {
   max-width: 600px;
-  margin: 50px auto;
-  background: #f9f9f9;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 60px auto;
+  background: #ffffff;
+  padding: 28px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
 }
 
 .form-ulasan h3 {
-  margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 22px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #333;
 }
 
 .form-ulasan input[type="text"],
 .form-ulasan textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.form-ulasan input:focus,
+.form-ulasan textarea:focus {
+  border-color: #515253;
+  outline: none;
+  box-shadow: 0 0 5px rgba(26, 115, 232, 0.2);
 }
 
 .form-ulasan button {
-  padding: 10px 20px;
-  background: #1a73e8;
-  color: white;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #8a1111;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 15px;
+  transition: background 0.3s, transform 0.2s;
 }
 
 .form-ulasan button:hover {
-  background: #155fc4;
+  background: #e32828;
+  transform: translateY(-1px);
 }
 
+.form-ulasan button:active {
+  transform: scale(0.97);
+}
+
+/* ===== Rating Stars ===== */
 .rating {
+  display: flex;
+  justify-content: center;
   direction: rtl;
-  unicode-bidi: bidi-override;
-  text-align: left;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .rating input {
@@ -1251,37 +1273,54 @@ ul {
 }
 
 .rating label {
-  font-size: 30px;
+  font-size: 2.2rem;
   color: #ccc;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.2s, color 0.2s;
 }
 
-.rating input:checked~label,
 .rating label:hover,
 .rating label:hover~label {
   color: #f5c518;
+  transform: scale(1.15);
 }
 
+.rating input:checked~label {
+  color: #f5c518;
+}
 
-
-/* ulasan */
+/* ===== Review Container ===== */
 .review-container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 40px auto;
   padding: 20px;
-  border-radius: 8px;
+}
+
+.review-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
 }
 
 .review-card {
-  border-bottom: 1px solid #d2d2d2;
-  padding: 20px 0;
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.review-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .review-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .review-user {
@@ -1290,15 +1329,16 @@ ul {
 }
 
 .review-avatar {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 12px;
+  box-shadow: 0 0 0 1px #686868;
 }
 
 .review-username {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -1308,11 +1348,11 @@ ul {
 }
 
 .review-stars {
-  margin-top: 4px;
+  margin: 6px 0;
 }
 
 .star {
-  font-size: 16px;
+  font-size: 18px;
   color: #ccc;
 }
 
@@ -1322,45 +1362,342 @@ ul {
 
 .review-text {
   font-size: 15px;
-  margin: 12px 0;
+  margin: 14px 0;
   line-height: 1.6;
+  color: #444;
 }
 
+/* ===== Feedback Yes/No ===== */
 .review-feedback {
   font-size: 13px;
   color: #666;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .review-question {
   font-size: 14px;
   color: #444;
+  margin-bottom: 6px;
 }
 
-.btn-feedback {
-  background: #fff;
-  border: 1px solid #ccc;
-  padding: 6px 14px;
-  margin: 0 4px;
+.feedback-btn {
+  background: #f1f3f4;
+  border: none;
+  padding: 6px 16px;
+  margin: 0 6px;
   border-radius: 20px;
+  font-size: 14px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
-.btn-feedback:hover {
-  background: #eee;
+.feedback-btn:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
 }
 
+/* ===== Link Semua Ulasan ===== */
 .lihat-semua-ulasan {
   text-align: center;
-  margin-top: 24px;
+  margin-top: 30px;
 }
 
 .lihat-semua-ulasan a {
   color: #1a73e8;
   text-decoration: none;
   font-weight: 500;
+  transition: 0.2s;
 }
+
+.lihat-semua-ulasan a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Alert Messages ===== */
+.alert {
+  padding: 12px 20px;
+  margin: 14px auto;
+  width: fit-content;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert.warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+/* ===== Responsive Mobile ===== */
+@media (max-width: 768px) {
+  .form-ulasan {
+    padding: 20px;
+    margin: 40px 16px;
+    border-radius: 12px;
+  }
+
+  .form-ulasan h3 {
+    font-size: 18px;
+  }
+
+  .form-ulasan input[type="text"],
+  .form-ulasan textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .form-ulasan button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .rating label {
+    font-size: 1.8rem;
+  }
+
+  .review-container {
+    padding: 16px;
+  }
+
+  .review-card {
+    padding: 16px;
+  }
+
+  .review-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .review-avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .review-username {
+    font-size: 15px;
+  }
+
+  .review-date {
+    font-size: 12px;
+  }
+
+  .review-text {
+    font-size: 14px;
+  }
+
+  .feedback-btn {
+    font-size: 13px;
+    padding: 6px 12px;
+    margin: 4px 2px;
+  }
+
+  .lihat-semua-ulasan a {
+    font-size: 14px;
+  }
+
+  .alert {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-ulasan {
+    margin: 30px 12px;
+  }
+
+  .rating label {
+    font-size: 1.5rem;
+  }
+
+  .review-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .review-username {
+    font-size: 14px;
+  }
+
+  .review-text {
+    font-size: 13.5px;
+  }
+
+  .feedback-btn {
+    padding: 5px 10px;
+    font-size: 12.5px;
+  }
+
+  .alert {
+    font-size: 13px;
+  }
+}
+
+/* ===== modal ===== */
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fadeOut 0.3s ease forwards;
+}
+
+/* Saat modal aktif (ditampilkan) */
+.modal.show {
+  display: block;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Konten modal */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideUp 0.3s ease;
+}
+
+.modal-header {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+
+/* Tombol close di pojok */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+/* Tombol tutup di bawah */
+.modal-footer {
+  text-align: center;
+  margin: 20px;
+}
+
+.modal-footer button {
+  background-color: #901c1c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.modal-footer button:hover {
+  background-color: #fb1d1d;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+
+/* Animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsif HP */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%;
+    padding: 16px;
+  }
+}
+
+
+/* Style tombol 'Lihat semua ulasan' */
+.lihat-semua-ulasan span {
+  color: #7d0000;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 16px;
+}
+
+.lihat-semua-ulasan span:hover {
+  text-decoration: underline;
+}
+
+
 
 
 #whatsapp-button {

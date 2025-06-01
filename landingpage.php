@@ -2,6 +2,7 @@
 include 'koneksi.php';
 session_start();
 
+
 // Default username untuk pengguna yang belum login
 $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : "Tamu";
 
@@ -40,6 +41,16 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
   </script>
   <?php unset($_SESSION['alert']); ?>
 <?php endif; ?>
+
+
+<?php
+if (isset($_SESSION['alert'])) {
+  var_dump($_SESSION['alert']); // debugging
+  $alert = $_SESSION['alert'];
+  echo "<div class='alert {$alert['type']}'>{$alert['message']}</div>";
+  unset($_SESSION['alert']);
+}
+?>
 
 <body>
   <div id="loading">
@@ -201,8 +212,8 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
 
     <!-- button prev dan next -->
     <div class="buttons">
-      <button id="prev"></button>
-      <button id="next">></button>
+      <button id="prev"><i class="fa-solid fa-caret-left"></i></button>
+      <button id="next"><i class="fa-solid fa-caret-right"></i></button>
     </div>
 
     <!-- titik -->
@@ -214,59 +225,10 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
       <li></li>
     </ul>
   </div>
-  <!-- Fitur komentar -->
-  <div data-aos="fade-up" data-aos-duration="2000" id="comment-section">
-    <h2>Ulasan</h2>
 
-    <div id="comments-container">
-      <!-- List komentar (akan diisi oleh JavaScript) -->
-      <div id="comments-list"></div>
-
-      <!-- Form komentar -->
-      <div id="comment-form">
-        <p>Berikan Ulasan Anda</p>
-        <form action="ulasan.php" method="post">
-          <textarea id="commentText" name="komentar" placeholder="Ketik ulasan anda..." required></textarea>
-          <button class="comment-btn" type="submit">Kirim ulasan</button>
-        </form>
-      </div>
-    </div>
-    <section class="section">
-      <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-          <?php
-          include 'koneksi.php';
-          $query = mysqli_query($conn, "SELECT * FROM ulasan ORDER BY tanggal DESC LIMIT 10");
-          while ($row = mysqli_fetch_assoc($query)) :
-          ?>
-            <div class="swiper-slide">
-              <div class="testimonialbox">
-                <div class="user-info">
-                  <img src="iconkomen.jpg" alt="quote" class="quote">
-                  <strong class="nama"><?= htmlspecialchars($row['nama']); ?></strong><br>
-                  <small class="tanggal"><?= date('d M Y', strtotime($row['tanggal'])); ?></small>
-                </div>
-                <div class="komentar">
-                  <p><?= nl2br(htmlspecialchars($row['komentar'])); ?></p>
-                </div>
-              </div>
-            </div>
-          <?php endwhile; ?>
-        </div>
-
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
-      </div>
-    </section>
-  </div>
-
-
-
-
-  <!-- ulasan coba -->
 
   <!-- form ulasan -->
-  <form action="proses-ulasan.php" method="post" class="form-ulasan">
+  <form id="ulasanForm" action="ulasan.php" method="post" class="form-ulasan">
     <h3>Berikan Ulasan Anda</h3>
 
     <div class="rating" required>
@@ -281,16 +243,48 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
     <button type="submit">Kirim Ulasan</button>
   </form>
 
+  <!-- validasi bintang -->
+  <script>
+    document.getElementById('ulasanForm').addEventListener('submit', function(e) {
+      const ratingChecked = document.querySelector('input[name="bintang"]:checked');
+      if (!ratingChecked) {
+        e.preventDefault();
+
+        Swal.fire({
+          icon: 'warning',
+          title: 'Oops...',
+          text: 'Tolong masukkan bintang terlebih dahulu!',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Oke'
+        });
+      }
+    });
+  </script>
+
+  <!-- feedback -->
+  <?php
+  $getFeedback = $conn->prepare("SELECT 
+  SUM(feedback = 'ya') as ya, 
+  SUM(feedback = 'tidak') as tidak FROM feedback_ulasan WHERE ulasan_id = ?");
+  $getFeedback->bind_param("i", $ulasan['no_ulasan']);
+  $getFeedback->execute();
+  $feedbackResult = $getFeedback->get_result()->fetch_assoc();
+  $yaCount = $feedbackResult['ya'] ?? 0;
+  $tidakCount = $feedbackResult['tidak'] ?? 0;
+  ?>
+
+
+
   <!-- tampilan ulasan -->
   <?php
   include 'koneksi.php';
 
-  $query = "SELECT * FROM ulasan ORDER BY tanggal DESC LIMIT 10";
+  $query = "SELECT * FROM ulasan ORDER BY tanggal DESC LIMIT 5";
   $result = mysqli_query($conn, $query);
   ?>
 
   <div class="review-container">
-    <h2>Semua Ulasan</h2>
+    <h2>Ulasan</h2>
     <?php while ($row = mysqli_fetch_assoc($result)): ?>
       <div class="review-card">
         <div class="review-header">
@@ -310,38 +304,189 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
           </div>
         </div>
         <div class="review-text"><?= nl2br(htmlspecialchars($row['komentar'])) ?></div>
-        <div class="review-feedback">
-          <?= rand(100, 5000) ?> orang merasa ulasan ini berguna
-        </div>
-        <div class="review-question">
-          Apakah konten ini berguna bagi Anda?
-          <button class="btn-feedback">Ya</button>
-          <button class="btn-feedback">Tidak</button>
+
+        <?php
+        $ulasan_id = $row['no_ulasan'] ?? 0; // Ambil id dari ulasan yang sedang diloop
+        $yaCount = 0;
+
+        if ($ulasan_id) {
+          $yaQuery = $conn->prepare("SELECT COUNT(*) AS yaCount FROM feedback_ulasan WHERE ulasan_id = ? AND LOWER(feedback) = 'ya'");
+          $yaQuery->bind_param("i", $ulasan_id);
+          $yaQuery->execute();
+          $yaResult = $yaQuery->get_result();
+          $yaData = $yaResult->fetch_assoc();
+          $yaCount = $yaData['yaCount'] ?? 0;
+        }
+        ?>
+
+        <div class="feedback-box" data-ulasan="<?= intval($row['no_ulasan']) ?>">
+
+          <div class="review-feedback">
+            <?= $yaCount ?> orang merasa ulasan ini berguna
+          </div>
+          <div class="feedback-actions">
+            <div class="review-question">
+              Apakah ulasan ini membantu Anda?
+              <button class="feedback-btn" data-feedback="ya">Ya</button>
+              <button class="feedback-btn" data-feedback="tidak">Tidak</button>
+            </div>
+          </div>
         </div>
       </div>
+
     <?php endwhile; ?>
     <div class="lihat-semua-ulasan">
-      <a href="semua-ulasan.php">Lihat semua ulasan</a>
+      <span class="open-modal-ulasan">Lihat semua ulasan</span>
     </div>
+
+
+    <!-- Modal Popup Ulasan -->
+    <div id="modalUlasan" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close-btn">&times;</span>
+          <h2>Semua Ulasan</h2>
+        </div>
+
+        <div class="modal-body" id="semua-ulasan-content">
+
+          <?php
+          $query = "SELECT * FROM ulasan ORDER BY tanggal DESC";
+          $result = mysqli_query($conn, $query);
+          ?>
+
+          <?php while ($row = mysqli_fetch_assoc($result)): ?>
+            <div class="review-card">
+              <div class="review-header">
+                <div class="review-user">
+                  <img src="iconkomen.jpg" class="review-avatar">
+                  <div>
+                    <div class="review-username"><?= htmlspecialchars($row['nama']) ?></div>
+                    <div class="review-stars">
+                      <?php for ($i = 1; $i <= 5; $i++): ?>
+                        <span class="star <?= $i <= $row['bintang'] ? 'filled' : '' ?>">★</span>
+                      <?php endfor; ?>
+                    </div>
+                  </div>
+                </div>
+                <div class="review-date">
+                  <?= date('d M Y', strtotime($row['tanggal'])) ?>
+                </div>
+              </div>
+              <div class="review-text"><?= nl2br(htmlspecialchars($row['komentar'])) ?></div>
+
+              <?php
+              $ulasan_id = $row['no_ulasan'] ?? 0; // Ambil id dari ulasan yang sedang diloop
+              $yaCount = 0;
+
+              if ($ulasan_id) {
+                $yaQuery = $conn->prepare("SELECT COUNT(*) AS yaCount FROM feedback_ulasan WHERE ulasan_id = ? AND LOWER(feedback) = 'ya'");
+                $yaQuery->bind_param("i", $ulasan_id);
+                $yaQuery->execute();
+                $yaResult = $yaQuery->get_result();
+                $yaData = $yaResult->fetch_assoc();
+                $yaCount = $yaData['yaCount'] ?? 0;
+              }
+              ?>
+
+              <div class="feedback-box" data-ulasan="<?= intval($row['no_ulasan']) ?>">
+
+                <div class="review-feedback">
+                  <?= $yaCount ?> orang merasa ulasan ini berguna
+                </div>
+                <div class="feedback-actions">
+                  <div class="review-question">
+                    Apakah ulasan ini membantu Anda?
+                    <button class="feedback-btn" data-feedback="ya">Ya</button>
+                    <button class="feedback-btn" data-feedback="tidak">Tidak</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <?php endwhile; ?>
+        </div>
+        <div class="modal-footer">
+          <button id="closeModalBtn">Tutup</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 
+  <!-- modal -->
+  <script>
+    const modal = document.getElementById("modalUlasan");
+    const openBtn = document.querySelector(".open-modal-ulasan");
+    const closeBtn = document.querySelector(".close-btn");
+    const closeFooterBtn = document.getElementById("closeModalBtn");
+
+    // Tampilkan modal
+    openBtn.addEventListener("click", () => {
+      modal.classList.add("show");
+      document.body.classList.add("modal-open"); // ⬅️ Kunci scroll
+    });
+
+    // Fungsi close modal
+    const closeModal = () => {
+      modal.classList.remove("show");
+      document.body.classList.remove("modal-open"); // ⬅️ Buka scroll
+    };
+
+    closeBtn.addEventListener("click", closeModal);
+    closeFooterBtn.addEventListener("click", closeModal);
+
+    // Klik di luar konten modal = tutup
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
 
 
 
+  <!-- AJAX -->
+  <script>
+    document.querySelectorAll('.feedback-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const ulasanBox = this.closest('.feedback-box');
+        const ulasanId = ulasanBox ? ulasanBox.getAttribute('data-ulasan') : null;
+        const feedback = this.getAttribute('data-feedback');
 
+        if (!ulasanId || !feedback) {
+          Swal.fire('Gagal', 'Data feedback tidak lengkap.', 'error');
+          return;
+        }
 
-  <!-- <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
-          slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
-          coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
-          <swiper-slide>
-            <img src=" https://swiperjs.com/demos/images/nature-1.jpg" />
-            … <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-          </swiper-slide>
-          <swiper-slide>
-            <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-          </swiper-slide>
-        </swiper-container> -->
+        fetch('feedback-handler.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `ulasan_id=${ulasanId}&feedback=${feedback}`
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              Swal.fire('Terima kasih!', 'Feedback Anda telah dikirim.', 'success');
+              // Disable tombol
+              const buttons = ulasanBox.querySelectorAll('.feedback-btn');
+              buttons.forEach(btn => btn.disabled = true);
+            } else {
+              Swal.fire('Gagal', 'Feedback gagal dikirim. ' + (data.error || ''), 'error');
+            }
+          })
+          .catch(error => {
+            Swal.fire('Error', 'Terjadi kesalahan jaringan.', 'error');
+          });
+      });
+    });
+  </script>
+  <!-- SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <a href="https://wa.me/6285846801239" id="whatsapp-button" target="_blank">
     <img src="wa.png" alt="WhatsApp" />
   </a>
@@ -387,35 +532,7 @@ $username = isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username'
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      pagination: {
-        spaceBetween: 10,
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      autoplay: {
-        delay: 3000, // 3000ms = 3 detik
-        disableOnInteraction: false, // agar autoplay tetap berjalan meskipun pengguna berinteraksi
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 1
-        },
-        600: {
-          slidesPerView: 1.2
-        },
-        768: {
-          slidesPerView: 1.5
-        },
-        1024: {
-          slidesPerView: 2
-        },
-      }
-    });
-  </script>
+
   <script>
     AOS.init();
   </script>

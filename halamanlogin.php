@@ -1,7 +1,6 @@
 <?php
 include 'koneksi.php';
 session_start();
-$_SESSION['id_pelanggan'] = $data['id_pelanggan'];
 
 if (isset($_SESSION['login'])) {
     header("location:landingpage.php");

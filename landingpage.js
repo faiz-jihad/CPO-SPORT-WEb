@@ -176,3 +176,6 @@ thumbnails.forEach(thumb => {
     mainDesc.textContent = thumb.getAttribute('data-desc');
   });
 });
+
+
+
