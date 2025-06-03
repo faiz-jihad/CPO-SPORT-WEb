@@ -81,7 +81,6 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  /* Menggunakan font Poppins */
   font-family: monospace;
   background-color: #f8f8f8;
 }
@@ -278,16 +277,11 @@ nav ul li a:hover {
   z-index: 100;
 }
 
-
-
-/* Ukuran lebih kecil untuk layar mobile */
 @media screen and (max-width: 480px) {
   .sub-menu-wrap {
     width: 200px;
-    /* Lebar lebih kecil saat mobile */
     right: 2%;
     z-index: 1000;
-    /* Geser sedikit agar tetap pas */
   }
 }
 
@@ -366,6 +360,7 @@ nav ul li a:hover {
   font-weight: 600;
 }
 
+/* foto homepage */
 .fotohomepage {
   width: 100%;
   height: 100%;
@@ -780,11 +775,11 @@ ul {
   }
 }
 
-/* Navbar lebih kecil di layar mobile */
+/* mobile */
 @media screen and (max-width: 480px) {
   .navbar {
     padding: 5px 10px;
-    /* Lebih kecil di layar mobile */
+
   }
 
   .profile-pic {
@@ -809,7 +804,6 @@ ul {
 @media screen and (max-width: 768px) {
   .court-card {
     min-width: 250px;
-    /* Ukuran lebih kecil di tablet dan ponsel */
     padding: 10px;
   }
 }

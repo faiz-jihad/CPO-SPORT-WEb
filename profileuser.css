@@ -8,29 +8,416 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Typography Responsif */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-size: 1.2em;
+    }
+}
+
+/* loading screen */
+#loading {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 6px solid transparent;
+    border-top: 6px solid #e60e0e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 10px #ef7c7c;
+}
+
+.loader-container p {
+    margin-top: 15px;
+    font-family: 'Segoe UI', sans-serif;
+    color: #555;
+    font-size: 16px;
+    letter-spacing: 1px;
+    animation: fadeIn 1.5s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
 body {
+    background: url('lapangan_CPO.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
     height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: url('lapangan_CPO.jpeg') no-repeat;
-      background-size: cover;
-      background-position: center;
-      image-resolution: 100px;
-  }
+}
 
+/* Navbar styling */
+.navbar {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    position: relative;
+    color: white;
+    padding: 10px 20px;
+}
 
-.container {
+.navbar-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    gap: -10px;
+}
+
+.menu-item {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 40px;
+    margin-right: 4%;
+    cursor: pointer;
+}
+
+.logo-cpo {
+    width: auto;
+    height: 40px;
+    margin-left: 40px;
+    margin-right: 4%;
+}
+
+/* Sidebar styling */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #5e0708;
+    color: white;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar .menu-item {
+    padding: 15px 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    transition: background 0.3s, transform 0.2s;
+    text-align: left;
+    text-decoration: none;
+    margin: 5px 0;
+    list-style: none;
+    color: white;
+    width: 220px;
+    margin-left: -5px;
+}
+
+.sidebar .menu-item a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+}
+
+.sidebar .menu-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 500;
+}
+
+.overlay.show {
+    display: block;
+}
+
+/* Main content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    color: black;
+    margin-left: 3%;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .menu-button {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-menu {
+        display: none;
+    }
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 0;
+    transition: all;
+    transition-duration: 300ms;
+    border-bottom: 1px solid rgba(220, 20, 60, 0);
+}
+
+nav ul li a:hover {
+    color: crimson;
+    border-bottom: 1px solid crimson;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 300px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    border: 5 px solid black;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+@media screen and (max-width: 480px) {
+    .sub-menu-wrap {
+        width: 200px;
+        right: 2%;
+        z-index: 1000;
+    }
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+    display: block;
+}
+
+.sub-menu {
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 5 px solid black;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    align-items: center;
+    text-align: center;
+}
+
+.user-info h3 {
+    font-weight: 500;
+    color: #24262b;
+    padding-top: 8px;
+    text-align: center;
+}
+
+.user-info img {
+    width: 40px;
+    border-radius: 50%;
+    align-items: center;
+}
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.sub-menu-link p {
+    width: 100%;
+}
+
+.sub-menu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span {
+    font-size: 22px;
+    transition: transform 0.3s;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+}
+
+/* Dropdown Menu  */
+@media screen and (max-width: 480px) {
+    nav ul {
+        display: none;
+    }
+
+    nav.active ul {
+        display: block;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+    }
+}
+
+/* mobile */
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 5px 10px;
+
+    }
+
+    .profile-pic {
+        width: 30px;
+        /* Foto profil lebih kecil */
+        height: 30px;
+    }
+
+    .menu-button {
+        font-size: 20px;
+        /* Ukuran ikon menu lebih kecil */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo-cpo {
+        display: none;
+    }
+}
+
+.profile-container {
     width: 100%;
     max-width: 400px;
     background: white;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    margin: 50px auto;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
-h2 {
+.profile-box h2 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
@@ -78,17 +465,33 @@ h2 {
 }
 
 .checkbox-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 5px;
-  margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .checkbox-container input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-box {
+        width: 100%;
+    }
+
+    .profile-box h2 {
+        font-size: 18px;
+    }
+
+    .profile-container {
+        width: 80%;
+        padding: 20px;
+        margin: 20px auto;
+    }
 }
 
 @keyframes fadeInUp {
@@ -96,48 +499,29 @@ h2 {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.container {
-    opacity: 0; /* Mulai dalam keadaan tersembunyi */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.show {
-    opacity: 1;
-    animation: fadeInUp 0.6s ease-out;
-}
-.container {
-    width: 90%; /* Biar responsif */
-    max-width: 320px; /* Lebih kecil dari sebelumnya */
-    background: white;
-    padding: 20px; /* Kurangi padding biar lebih compact */
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-}
-
 
 #whatsapp-button {
-    position: fixed; /* Membuat tombol tetap di posisi yang ditentukan */
-    bottom: 20px;     /* Jarak dari bawah */
-    right: 20px;      /* Jarak dari kanan */
-    z-index: 1000;    /* Pastikan tombol berada di atas konten lain */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 #whatsapp-button img {
-    width: 60px;  /* Ukuran gambar tombol */
-    height: 60px; /* Ukuran gambar tombol */
-    border-radius: 50%; /* Membuat tombol berbentuk lingkaran */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Menambahkan efek bayangan */
-    transition: transform 0.3s ease; /* Animasi saat hover */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
 }
 
 #whatsapp-button:hover img {
-    transform: scale(1.1); /* Menambahkan efek pembesaran saat hover */
+    transform: scale(1.1);
 }
-
-
